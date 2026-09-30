@@ -3,300 +3,837 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Al Badar Lyceum - Admission Form</title>
+
+    <title>Al Badar Lyceum | Admission Portal</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
     <style>
-        /* Base Reset */
+
+        /* ================================
+           GLOBAL RESET
+        ================================= */
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        /* Blurry Classroom Background */
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
+            font-family: 'Inter', Arial, sans-serif;
             min-height: 100vh;
-            background: linear-gradient(rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0.82)),
-                        url('https://images.unsplash.com/photo-1580582932707-520aed937b7b?q=80&w=1920&auto=format&fit=crop') no-repeat center center fixed;
-            background-size: cover;
-            color: #1a1a1a;
+            color: #172033;
+            overflow-x: hidden;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(3, 20, 50, 0.94),
+                    rgba(0, 58, 115, 0.88),
+                    rgba(150, 0, 0, 0.78)
+                ),
+                url('https://images.unsplash.com/photo-1580582932707-520aed937b7b?q=80&w=1920&auto=format&fit=crop')
+                center/cover fixed;
+        }
+
+        /* Animated background glow */
+
+        body::before,
+        body::after {
+            content: "";
+            position: fixed;
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            filter: blur(90px);
+            opacity: 0.35;
+            z-index: -1;
+            animation: floatingGlow 8s infinite alternate ease-in-out;
+        }
+
+        body::before {
+            background: #008cff;
+            top: -120px;
+            left: -100px;
+        }
+
+        body::after {
+            background: #ff1f1f;
+            right: -120px;
+            bottom: -100px;
+            animation-delay: 2s;
+        }
+
+        @keyframes floatingGlow {
+            from {
+                transform: translate(0, 0) scale(1);
+            }
+
+            to {
+                transform: translate(60px, 40px) scale(1.2);
+            }
+        }
+
+        /* ================================
+           TOP NAVIGATION
+        ================================= */
+
+        .topbar {
+            width: 100%;
+            padding: 18px 5%;
             display: flex;
-            flex-direction: column;
+            justify-content: space-between;
             align-items: center;
+            color: white;
+            background: rgba(0, 0, 0, 0.22);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid rgba(255,255,255,0.15);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
-        /* Container Card */
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 900;
+            letter-spacing: 0.5px;
+        }
+
+        .brand-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #ffffff, #dfeaff);
+            color: #003b75;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        .brand span {
+            font-size: 18px;
+        }
+
+        .secure-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 9px 14px;
+            border-radius: 50px;
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .secure-badge i {
+            color: #42ff91;
+        }
+
+        /* ================================
+           MAIN CONTAINER
+        ================================= */
+
         .main-container {
-            width: 90%;
-            max-width: 800px;
-            margin: 30px auto;
-            background: rgba(255, 255, 255, 0.92);
-            backdrop-filter: blur(8px);
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-            padding: 30px 25px;
-            border: 2px solid #003366;
+            width: 92%;
+            max-width: 1050px;
+            margin: 45px auto;
+            background: rgba(255,255,255,0.93);
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow:
+                0 35px 90px rgba(0,0,0,0.35),
+                0 0 0 1px rgba(255,255,255,0.3);
+            animation: pageEnter 0.8s ease;
         }
 
-        /* Top Logo / Image Section */
-        .logo-section {
+        @keyframes pageEnter {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ================================
+           HERO SECTION
+        ================================= */
+
+        .hero {
+            position: relative;
+            padding: 55px 30px 45px;
             text-align: center;
-            margin-bottom: 20px;
+            color: white;
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #002b5c,
+                    #0054a6,
+                    #870000
+                );
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 450px;
+            height: 450px;
+            border-radius: 50%;
+            border: 1px solid rgba(255,255,255,0.12);
+            top: -260px;
+            left: -130px;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            border: 1px solid rgba(255,255,255,0.1);
+            bottom: -350px;
+            right: -100px;
         }
 
         .logo-img {
-            width: 140px;
-            height: 140px;
+            position: relative;
+            z-index: 2;
+
+            width: 145px;
+            height: 145px;
             object-fit: cover;
+
             border-radius: 50%;
-            border: 4px solid #cc0000;
-            box-shadow: 0 4px 12px rgba(204, 0, 0, 0.3);
+            padding: 5px;
+
+            background: white;
+
+            border: 5px solid rgba(255,255,255,0.85);
+
+            box-shadow:
+                0 15px 35px rgba(0,0,0,0.35),
+                0 0 0 10px rgba(255,255,255,0.08);
+
+            margin-bottom: 20px;
+
+            animation: logoFloat 4s ease-in-out infinite;
+        }
+
+        @keyframes logoFloat {
+            0%,100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-7px);
+            }
+        }
+
+        .hero h1 {
+            position: relative;
+            z-index: 2;
+            font-size: clamp(2rem, 5vw, 3.4rem);
+            font-weight: 900;
+            letter-spacing: -1px;
             margin-bottom: 10px;
         }
 
-        /* Vibrant Typography Styles */
-        .text-black {
-            color: #111111;
+        .hero h1 .blue {
+            color: #72c7ff;
         }
 
-        .text-red {
-            color: #cc0000;
+        .hero h1 .red {
+            color: #ff7070;
         }
 
-        .text-blue {
-            color: #003366;
+        .hero-subtitle {
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+            margin: auto;
+            line-height: 1.7;
+            color: rgba(255,255,255,0.86);
+            font-size: 15px;
         }
 
-        .school-title {
-            font-size: 2.5rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
-            margin-bottom: 12px;
+        .location-pill {
+            position: relative;
+            z-index: 2;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 20px;
+            padding: 10px 17px;
+            border-radius: 50px;
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.2);
+            font-size: 13px;
+            font-weight: 600;
         }
 
-        .school-description {
-            font-size: 1rem;
-            line-height: 1.6;
-            color: #333333;
-            text-align: justify;
-            background: rgba(240, 244, 248, 0.8);
-            padding: 15px 20px;
-            border-left: 5px solid #003366;
-            border-radius: 6px;
+        /* ================================
+           INFO STRIP
+        ================================= */
+
+        .info-strip {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            background: #f7f9fc;
+            border-bottom: 1px solid #e8edf4;
+        }
+
+        .info-item {
+            padding: 22px 15px;
+            text-align: center;
+            border-right: 1px solid #e4e8ef;
+        }
+
+        .info-item:last-child {
+            border-right: none;
+        }
+
+        .info-item i {
+            font-size: 22px;
+            color: #0055a5;
+            margin-bottom: 8px;
+        }
+
+        .info-item strong {
+            display: block;
+            font-size: 14px;
+            color: #172033;
+        }
+
+        .info-item small {
+            color: #718096;
+        }
+
+        /* ================================
+           CONTENT
+        ================================= */
+
+        .content {
+            padding: 40px;
+        }
+
+        .section-heading {
+            text-align: center;
             margin-bottom: 30px;
         }
 
-        /* Form Styles */
+        .section-heading .small-title {
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 11px;
+            font-weight: 800;
+            color: #cc0000;
+            margin-bottom: 7px;
+        }
+
+        .section-heading h2 {
+            font-size: 29px;
+            font-weight: 900;
+            color: #102a43;
+        }
+
+        .section-heading p {
+            margin-top: 8px;
+            color: #718096;
+            font-size: 14px;
+        }
+
+        /* ================================
+           FORM CARD
+        ================================= */
+
         .form-card {
-            background: #ffffff;
-            padding: 25px;
-            border-radius: 12px;
-            border-top: 4px solid #cc0000;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            background: white;
+            border-radius: 22px;
+            padding: 30px;
+            border: 1px solid #e7ebf1;
+            box-shadow: 0 15px 40px rgba(18, 38, 63, 0.08);
         }
 
-        .form-title {
-            font-size: 1.6rem;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #e0e0e0;
+        .form-section-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #e9edf3;
         }
 
-        .form-group {
-            margin-bottom: 18px;
-        }
-
-        .form-group label {
-            display: block;
-            font-weight: 600;
-            margin-bottom: 6px;
-            color: #003366;
-        }
-
-        .form-group input, .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            font-size: 1rem;
-            border: 1.5px solid #ccc;
-            border-radius: 8px;
-            outline: none;
-            transition: border-color 0.3s ease;
-        }
-
-        .form-group input:focus, .form-group textarea:focus {
-            border-color: #cc0000;
-            box-shadow: 0 0 5px rgba(204, 0, 0, 0.3);
-        }
-
-        /* Submit Button */
-        .btn-whatsapp {
-            width: 100%;
-            background-color: #25D366;
-            color: white;
-            font-size: 1.1rem;
-            font-weight: 700;
-            padding: 14px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.1s ease;
+        .form-section-title .number {
+            width: 36px;
+            height: 36px;
+            border-radius: 11px;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
-            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+            color: white;
+            background: linear-gradient(135deg, #0055a5, #00305d);
+            font-weight: 800;
         }
 
-        .btn-whatsapp:hover {
-            background-color: #1da851;
-            transform: translateY(-2px);
+        .form-section-title h3 {
+            font-size: 18px;
+            color: #102a43;
         }
 
-        /* Footer / Contact Section */
-        footer {
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 2px solid #003366;
+        /* ================================
+           GRID
+        ================================= */
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 4px;
+        }
+
+        .full-width {
+            grid-column: 1 / -1;
+        }
+
+        .form-group label {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 13px;
+            font-weight: 800;
+            color: #243b53;
+            margin-bottom: 8px;
+        }
+
+        .required {
+            color: #d00000;
+        }
+
+        .input-wrapper {
+            position: relative;
+        }
+
+        .input-wrapper i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #829ab1;
+            pointer-events: none;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            border: 1.5px solid #dce3ec;
+            background: #f9fbfd;
+            color: #172033;
+            border-radius: 12px;
+            padding: 14px 15px 14px 43px;
+            font-size: 14px;
+            font-family: inherit;
+            outline: none;
+            transition: 0.25s ease;
+        }
+
+        .form-group textarea {
+            padding-left: 15px;
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-group select {
+            cursor: pointer;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: #0067c5;
+            background: white;
+            box-shadow: 0 0 0 4px rgba(0,103,197,0.08);
+        }
+
+        /* ================================
+           CHECKBOX
+        ================================= */
+
+        .agreement {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            margin-top: 25px;
+            padding: 15px;
+            background: #f6f9fc;
+            border-radius: 12px;
+            border: 1px solid #e3eaf2;
+        }
+
+        .agreement input {
+            width: 18px;
+            height: 18px;
+            margin-top: 2px;
+            accent-color: #0055a5;
+        }
+
+        .agreement label {
+            font-size: 12px;
+            line-height: 1.6;
+            color: #52606d;
+        }
+
+        /* ================================
+           SUBMIT BUTTON
+        ================================= */
+
+        .submit-btn {
+            position: relative;
+            overflow: hidden;
+
+            width: 100%;
+            margin-top: 22px;
+            padding: 16px;
+
+            border: none;
+            border-radius: 13px;
+
+            color: white;
+            background: linear-gradient(
+                135deg,
+                #18b957,
+                #0b9d45
+            );
+
+            font-family: inherit;
+            font-size: 15px;
+            font-weight: 900;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 10px 25px rgba(24,185,87,0.25);
+
+            transition: 0.25s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow:
+                0 15px 30px rgba(24,185,87,0.35);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        .submit-btn i {
+            margin-right: 8px;
+        }
+
+        /* Button shine */
+
+        .submit-btn::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 70%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255,255,255,0.25),
+                transparent
+            );
+            transform: skewX(-20deg);
+            animation: buttonShine 3s infinite;
+        }
+
+        @keyframes buttonShine {
+            0% {
+                left: -100%;
+            }
+
+            40%,100% {
+                left: 150%;
+            }
+        }
+
+        .form-note {
             text-align: center;
+            margin-top: 12px;
+            font-size: 11px;
+            color: #829ab1;
         }
 
-        footer h3 {
-            font-size: 1.3rem;
+        /* ================================
+           CONTACT FOOTER
+        ================================= */
+
+        .footer {
+            color: white;
+            padding: 40px;
+            background:
+                linear-gradient(
+                    135deg,
+                    #061b35,
+                    #002c5c
+                );
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 35px;
+        }
+
+        .footer h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+        }
+
+        .footer-description {
+            color: rgba(255,255,255,0.7);
+            font-size: 13px;
+            line-height: 1.7;
+            max-width: 500px;
+        }
+
+        .contact-list {
+            list-style: none;
+        }
+
+        .contact-list li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 13px;
+            font-size: 13px;
+            color: rgba(255,255,255,0.82);
+        }
+
+        .contact-list i {
+            width: 30px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 9px;
+            background: rgba(255,255,255,0.1);
+            color: #72c7ff;
+        }
+
+        .contact-list a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .contact-list a:hover {
+            color: #72c7ff;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.45);
+            font-size: 11px;
+        }
+
+        /* ================================
+           SUCCESS POPUP
+        ================================= */
+
+        .success-overlay {
+            position: fixed;
+            inset: 0;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+
+            background: rgba(0,0,0,0.65);
+            backdrop-filter: blur(8px);
+
+            z-index: 999;
+        }
+
+        .success-box {
+            width: 100%;
+            max-width: 430px;
+            padding: 35px;
+            text-align: center;
+            background: white;
+            border-radius: 25px;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.35);
+            animation: popup 0.35s ease;
+        }
+
+        @keyframes popup {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .success-icon {
+            width: 75px;
+            height: 75px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+            background: #e9fff1;
+            color: #18b957;
+
+            font-size: 32px;
+        }
+
+        .success-box h2 {
+            color: #102a43;
             margin-bottom: 10px;
         }
 
-        .contact-details {
-            list-style: none;
-            line-height: 1.8;
-            font-size: 0.95rem;
+        .success-box p {
+            color: #718096;
+            font-size: 13px;
+            line-height: 1.6;
         }
 
-        .contact-details a {
-            color: #003366;
-            text-decoration: none;
-            font-weight: 600;
+        .close-popup {
+            margin-top: 20px;
+            padding: 11px 22px;
+            border: none;
+            border-radius: 10px;
+            background: #0055a5;
+            color: white;
+            font-weight: 700;
+            cursor: pointer;
         }
 
-        .contact-details a:hover {
-            color: #cc0000;
-            text-decoration: underline;
-        }
+        /* ================================
+           RESPONSIVE
+        ================================= */
 
-        /* Responsive */
-        @media (max-width: 600px) {
-            .school-title {
-                font-size: 1.8rem;
+        @media (max-width: 700px) {
+
+            .topbar {
+                padding: 14px 18px;
             }
+
+            .brand span {
+                font-size: 14px;
+            }
+
+            .secure-badge {
+                font-size: 10px;
+                padding: 7px 10px;
+            }
+
             .main-container {
-                padding: 18px;
+                width: 94%;
+                margin: 20px auto;
+                border-radius: 20px;
+            }
+
+            .hero {
+                padding: 40px 18px 35px;
+            }
+
+            .logo-img {
+                width: 120px;
+                height: 120px;
+            }
+
+            .info-strip {
+                grid-template-columns: 1fr;
+            }
+
+            .info-item {
+                border-right: none;
+                border-bottom: 1px solid #e4e8ef;
+            }
+
+            .info-item:last-child {
+                border-bottom: none;
+            }
+
+            .content {
+                padding: 25px 15px;
+            }
+
+            .form-card {
+                padding: 20px 15px;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .full-width {
+                grid-column: auto;
+            }
+
+            .footer {
+                padding: 30px 20px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
             }
         }
+
     </style>
 </head>
+
 <body>
 
-    <div class="main-container">
-        <!-- Logo Section -->
-        <div class="logo-section">
-            <img src="Screenshot_2026-09-30-16-29-06-90.jpg" alt="Al Badar Lyceum Logo" class="logo-img">
-            
-            <!-- School Name in Black, Red, and Blue styling -->
-            <h1 class="school-title">
-                <span class="text-blue">Al</span> 
-                <span class="text-red">Badar</span> 
-                <span class="text-black">Lyceum</span>
-            </h1>
+    <!-- ================================
+         TOP BAR
+    ================================= -->
+
+    <header class="topbar">
+
+        <div class="brand">
+            <div class="brand-icon">
+                <i class="fa-solid fa-school"></i>
+            </div>
+
+            <span>Al Badar Lyceum</span>
         </div>
 
-        <!-- Description Paragraph -->
-        <p class="school-description">
-            <strong class="text-red">Al Badar Lyceum</strong>, located at Rasheed Chowk, Muhalla Aman Abad in Jhang Sadar, is dedicated to fostering academic excellence and strong moral values. We provide a modern, supportive learning environment with experienced faculty, interactive classrooms, and diverse co-curricular activities. Our mission is to inspire critical thinking, nurture leadership, and empower every student for a successful future.
-        </p>
-
-        <!-- Admission Form Card -->
-        <div class="form-card">
-            <h2 class="form-title">
-                <span class="text-blue">Admission Form for</span> 
-                <span class="text-red">Al Badar Lyceum</span>
-            </h2>
-
-            <form id="admissionForm">
-                <div class="form-group">
-                    <label for="studentName">Student Name:</label>
-                    <input type="text" id="studentName" placeholder="Enter student's full name" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="fatherName">Father Name:</label>
-                    <input type="text" id="fatherName" placeholder="Enter father's full name" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="address">Address:</label>
-                    <textarea id="address" rows="3" placeholder="Enter full home address" required></textarea>
-                </div>
-
-                <div class="form-group">
-                    <label for="contactNumber">Phone / Contact Number:</label>
-                    <input type="tel" id="contactNumber" placeholder="e.g. 0300 1234567" required>
-                </div>
-
-                <button type="submit" class="btn-whatsapp">
-                    Confirm Admission via WhatsApp
-                </button>
-            </form>
-        </div>
-
-        <!-- School Contact Information Footer -->
-        <footer>
-            <h3 class="text-blue">School Contact Information</h3>
-            <ul class="contact-details">
-                <li><strong>Phone Number:</strong> <a href="tel:03453931931">0345 3931931</a></li>
-                <li><strong>WhatsApp Number:</strong> <a href="https://wa.me/923453931931" target="_blank">+92 345 3931931</a></li>
-                <li><strong>Email:</strong> <a href="mailto:albadarschooljhg@gmail.com">albadarschooljhg@gmail.com</a></li>
-                <li><strong>Address:</strong> Rasheed Chowk, Muhalla Aman Abad, Jhang Sadar</li>
-            </ul>
-        </footer>
-    </div>
-
-    <!-- JavaScript to Handle WhatsApp Redirection -->
-    <script>
-        document.getElementById('admissionForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            // Fetch input values
-            const studentName = document.getElementById('studentName').value.trim();
-            const fatherName = document.getElementById('fatherName').value.trim();
-            const address = document.getElementById('address').value.trim();
-            const contactNumber = document.getElementById('contactNumber').value.trim();
-
-            // Target phone number formatted for WhatsApp API
-            const whatsappPhone = "923453931931";
-
-            // Construct respectful admission application message
-            const message = `Respected Principal / Administration,\n` +
-                `*Al Badar Lyceum, Jhang Sadar*\n\n` +
-                `I would like to submit an admission request with the following details:\n\n` +
-                `📌 *Student Name:* ${studentName}\n` +
-                `📌 *Father Name:* ${fatherName}\n` +
-                `📌 *Address:* ${address}\n` +
-                `📞 *Contact Info:* ${contactNumber}\n\n` +
-                `Please guide us further regarding the admission process. Thank you!`;
-
-            // Encode message for URL format
-            const encodedMessage = encodeURIComponent(message);
-
-            // WhatsApp Web / App Link
-            const whatsappURL = `https://wa.me/${whatsappPhone}?text=${encodedMessage}`;
-
-            // Redirect to WhatsApp
-            window.open(whatsappURL, '_blank');
-        });
-    </script>
-</body>
-    </html>
-    
+        <div class="secure-badge">
+            <i class="fa-solid fa-shield-halv
