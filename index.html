@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Al Badar Lyceum - Admission Form</title>
+    <style>
+        /* Base Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Blurry Classroom Background */
+        body {
+            min-height: 100vh;
+            background: linear-gradient(rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0.82)),
+                        url('https://images.unsplash.com/photo-1580582932707-520aed937b7b?q=80&w=1920&auto=format&fit=crop') no-repeat center center fixed;
+            background-size: cover;
+            color: #1a1a1a;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Container Card */
+        .main-container {
+            width: 90%;
+            max-width: 800px;
+            margin: 30px auto;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(8px);
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            padding: 30px 25px;
+            border: 2px solid #003366;
+        }
+
+        /* Top Logo / Image Section */
+        .logo-section {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .logo-img {
+            width: 140px;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid #cc0000;
+            box-shadow: 0 4px 12px rgba(204, 0, 0, 0.3);
+            margin-bottom: 10px;
+        }
+
+        /* Vibrant Typography Styles */
+        .text-black {
+            color: #111111;
+        }
+
+        .text-red {
+            color: #cc0000;
+        }
+
+        .text-blue {
+            color: #003366;
+        }
+
+        .school-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+            margin-bottom: 12px;
+        }
+
+        .school-description {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #333333;
+            text-align: justify;
+            background: rgba(240, 244, 248, 0.8);
+            padding: 15px 20px;
+            border-left: 5px solid #003366;
+            border-radius: 6px;
+            margin-bottom: 30px;
+        }
+
+        /* Form Styles */
+        .form-card {
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 12px;
+            border-top: 4px solid #cc0000;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .form-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: #003366;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            font-size: 1rem;
+            border: 1.5px solid #ccc;
+            border-radius: 8px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            border-color: #cc0000;
+            box-shadow: 0 0 5px rgba(204, 0, 0, 0.3);
+        }
+
+        /* Submit Button */
+        .btn-whatsapp {
+            width: 100%;
+            background-color: #25D366;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 700;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.1s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+        }
+
+        .btn-whatsapp:hover {
+            background-color: #1da851;
+            transform: translateY(-2px);
+        }
+
+        /* Footer / Contact Section */
+        footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #003366;
+            text-align: center;
+        }
+
+        footer h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .contact-details {
+            list-style: none;
+            line-height: 1.8;
+            font-size: 0.95rem;
+        }
+
+        .contact-details a {
+            color: #003366;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-details a:hover {
+            color: #cc0000;
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .school-title {
+                font-size: 1.8rem;
+            }
+            .main-container {
+                padding: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-container">
+        <!-- Logo Section -->
+        <div class="logo-section">
+            <img src="Screenshot_2026-09-30-16-29-06-90.jpg" alt="Al Badar Lyceum Logo" class="logo-img">
+            
+            <!-- School Name in Black, Red, and Blue styling -->
+            <h1 class="school-title">
+                <span class="text-blue">Al</span> 
+                <span class="text-red">Badar</span> 
+                <span class="text-black">Lyceum</span>
+            </h1>
+        </div>
+
+        <!-- Description Paragraph -->
+        <p class="school-description">
+            <strong class="text-red">Al Badar Lyceum</strong>, located at Rasheed Chowk, Muhalla Aman Abad in Jhang Sadar, is dedicated to fostering academic excellence and strong moral values. We provide a modern, supportive learning environment with experienced faculty, interactive classrooms, and diverse co-curricular activities. Our mission is to inspire critical thinking, nurture leadership, and empower every student for a successful future.
+        </p>
+
+        <!-- Admission Form Card -->
+        <div class="form-card">
+            <h2 class="form-title">
+                <span class="text-blue">Admission Form for</span> 
+                <span class="text-red">Al Badar Lyceum</span>
+            </h2>
+
+            <form id="admissionForm">
+                <div class="form-group">
+                    <label for="studentName">Student Name:</label>
+                    <input type="text" id="studentName" placeholder="Enter student's full name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="fatherName">Father Name:</label>
+                    <input type="text" id="fatherName" placeholder="Enter father's full name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="address">Address:</label>
+                    <textarea id="address" rows="3" placeholder="Enter full home address" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="contactNumber">Phone / Contact Number:</label>
+                    <input type="tel" id="contactNumber" placeholder="e.g. 0300 1234567" required>
+                </div>
+
+                <button type="submit" class="btn-whatsapp">
+                    Confirm Admission via WhatsApp
+                </button>
+            </form>
+        </div>
+
+        <!-- School Contact Information Footer -->
+        <footer>
+            <h3 class="text-blue">School Contact Information</h3>
+            <ul class="contact-details">
+                <li><strong>Phone Number:</strong> <a href="tel:03453931931">0345 3931931</a></li>
+                <li><strong>WhatsApp Number:</strong> <a href="https://wa.me/923453931931" target="_blank">+92 345 3931931</a></li>
+                <li><strong>Email:</strong> <a href="mailto:albadarschooljhg@gmail.com">albadarschooljhg@gmail.com</a></li>
+                <li><strong>Address:</strong> Rasheed Chowk, Muhalla Aman Abad, Jhang Sadar</li>
+            </ul>
+        </footer>
+    </div>
+
+    <!-- JavaScript to Handle WhatsApp Redirection -->
+    <script>
+        document.getElementById('admissionForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Fetch input values
+            const studentName = document.getElementById('studentName').value.trim();
+            const fatherName = document.getElementById('fatherName').value.trim();
+            const address = document.getElementById('address').value.trim();
+            const contactNumber = document.getElementById('contactNumber').value.trim();
+
+            // Target phone number formatted for WhatsApp API
+            const whatsappPhone = "923453931931";
+
+            // Construct respectful admission application message
+            const message = `Respected Principal / Administration,\n` +
+                `*Al Badar Lyceum, Jhang Sadar*\n\n` +
+                `I would like to submit an admission request with the following details:\n\n` +
+                `📌 *Student Name:* ${studentName}\n` +
+                `📌 *Father Name:* ${fatherName}\n` +
+                `📌 *Address:* ${address}\n` +
+                `📞 *Contact Info:* ${contactNumber}\n\n` +
+                `Please guide us further regarding the admission process. Thank you!`;
+
+            // Encode message for URL format
+            const encodedMessage = encodeURIComponent(message);
+
+            // WhatsApp Web / App Link
+            const whatsappURL = `https://wa.me/${whatsappPhone}?text=${encodedMessage}`;
+
+            // Redirect to WhatsApp
+            window.open(whatsappURL, '_blank');
+        });
+    </script>
+</body>
+  </html>
+  
