@@ -361,7 +361,7 @@
 <body>
 
     <div class="top-bar">
-        <button class="lang-btn" onclick="toggleLanguage()">
+        <button class="lang-btn" id="langToggleBtn">
             <i class="fa-solid fa-globe"></i> <span id="langBtnText">اردو (Urdu)</span>
         </button>
         <div style="font-weight: 700; font-size: 0.95rem; color: #ff4d4d;" id="badgeText">
@@ -459,7 +459,7 @@
 
                 <button type="submit" class="btn-whatsapp" id="btnSubmit">
                     <i class="fa-brands fa-whatsapp" style="font-size: 1.4rem;"></i>
-                    Confirm Admission via WhatsApp
+                    <span id="btnText">Confirm Admission via WhatsApp</span>
                 </button>
             </form>
         </div>
@@ -497,60 +497,56 @@
     </div>
 
     <script>
-        let currentLang = 'en';
+        document.addEventListener('DOMContentLoaded', function() {
+            let currentLang = 'en';
 
-        const translations = {
-            en: {
-                langBtn: "اردو (Urdu)",
-                badge: "🎓 Academic Year 2026-27",
-                notice: "📢 NOTICE BOARD: Speech Competition is going to be held on October 1st!",
-                ticker: "🔔 Admissions Open for New Session 2026-27! Limited Seats Available. Visit Campus or Apply Online via WhatsApp Form Below.",
-                schoolDesc: `<strong class="text-red">Al Badar Lyceum</strong>, located at Rasheed Chowk, Muhalla Aman Abad in Jhang Sadar, is dedicated to fostering academic excellence and strong moral values. We provide a modern, supportive learning environment with experienced faculty, interactive classrooms, and diverse co-curricular activities. Our mission is to inspire critical thinking, nurture leadership, and empower every student for a successful future.`,
-                statTeachers: "Teachers",
-                statClasses: "Classes",
-                formHeader: `<span class="text-blue">Admission Form for</span> <span class="text-red">Al Badar Lyceum</span>`,
-                lblStudentName: "Student Name:",
-                phStudentName: "Enter student's full name",
-                lblFatherName: "Father Name:",
-                phFatherName: "Enter father's full name",
-                lblCnic: "B-Form / CNIC Number:",
-                phCnic: "e.g. 33202-XXXXXXX-X",
-                lblClass: "Grade / Class to Apply:",
-                lblContact: "Phone / WhatsApp Number:",
-                phContact: "e.g. 0345 1234567",
-                lblEmail: "Email Address (Optional):",
-                phEmail: "example@mail.com",
-                lblAddress: "Residential Address:",
-                phAddress: "Enter full home address",
-                btnSubmit: `<i class="fa-brands fa-whatsapp" style="font-size: 1.4rem;"></i> Confirm Admission via WhatsApp`,
-                facTitle: "🏫 Our Campus Facilities",
-                facSciTitle: "Science Lab",
-                facSciDesc: "Daily new Experiments",
-                facLibTitle: "Library",
-                facLibDesc: "New stock of Story books",
-                facPlayTitle: "Play Area",
-                facPlayDesc: "A huge Playground for kids",
-                footerTitle: "School Contact Information",
-                lblPhone: "Phone Number:",
-                lblWa: "WhatsApp Number:",
-                lblMail: "Email:",
-                lblLoc: "Address:"
-            },
-            ur: {
-                langBtn: "English",
-                badge: "🎓 تعلیمی سال 2026-27",
-                notice: "📢 نوٹس بورڈ: 1 اکتوبر کو تقریری مقابلے کا انعقاد کیا جا رہا ہے!",
-                ticker: "🔔 نئے تعلیمی سیشن 2026-27 کے داخلے جاری ہیں! محدود نشستیں دستیاب ہیں۔ نیچے دیے گئے واٹس ایپ فارم کے ذریعے آن لائن اپلائی کریں۔",
-                schoolDesc: `<strong class="text-red">البدر لائسیم</strong>، واقع رشید چوک، محلہ امن آباد، جھنگ صدر، معیاری تعلیم اور بہترین اخلاقی تربیت کے لیے کوشاں ہے۔ ہم تجربہ کار اساتذہ، جدید کلاس رومز اور غیر نصابی سرگرمیوں کے ساتھ ایک سازگار تعلیمی ماحول فراہم کرتے ہیں۔ ہمارا مقصد طالب علموں میں خود اعتمادی اور قیادت کی صلاحیتیں پیدا کرنا ہے۔`,
-                statTeachers: "اساتذہ",
-                statClasses: "کلاس رومز",
-                formHeader: `<span class="text-blue">داخلہ فارم</span> <span class="text-red">البدر لائسیم</span>`,
-                lblStudentName: "طالب علم کا نام:",
-                phStudentName: "طالب علم کا مکمل نام درج کریں",
-                lblFatherName: "والد کا نام:",
-                phFatherName: "والد کا مکمل نام درج کریں",
-                lblCnic: "ب فارم / شناختی کارڈ نمبر:",
-                phCnic: "مثلاً 33202-XXXXXXX-X",
-                lblClass: "مطلوبہ کلاس:",
-                lblContact: "فون / واٹس ایپ نمبر:",
-                phCont
+            const translations = {
+                en: {
+                    langBtn: "اردو (Urdu)",
+                    badge: "🎓 Academic Year 2026-27",
+                    notice: "📢 NOTICE BOARD: Speech Competition is going to be held on October 1st!",
+                    ticker: "🔔 Admissions Open for New Session 2026-27! Limited Seats Available. Visit Campus or Apply Online via WhatsApp Form Below.",
+                    schoolDesc: `<strong class="text-red">Al Badar Lyceum</strong>, located at Rasheed Chowk, Muhalla Aman Abad in Jhang Sadar, is dedicated to fostering academic excellence and strong moral values. We provide a modern, supportive learning environment with experienced faculty, interactive classrooms, and diverse co-curricular activities. Our mission is to inspire critical thinking, nurture leadership, and empower every student for a successful future.`,
+                    statTeachers: "Teachers",
+                    statClasses: "Classes",
+                    formHeader: `<span class="text-blue">Admission Form for</span> <span class="text-red">Al Badar Lyceum</span>`,
+                    lblStudentName: "Student Name:",
+                    phStudentName: "Enter student's full name",
+                    lblFatherName: "Father Name:",
+                    phFatherName: "Enter father's full name",
+                    lblCnic: "B-Form / CNIC Number:",
+                    phCnic: "e.g. 33202-XXXXXXX-X",
+                    lblClass: "Grade / Class to Apply:",
+                    lblContact: "Phone / WhatsApp Number:",
+                    phContact: "e.g. 0345 1234567",
+                    lblEmail: "Email Address (Optional):",
+                    phEmail: "example@mail.com",
+                    lblAddress: "Residential Address:",
+                    phAddress: "Enter full home address",
+                    btnSubmit: "Confirm Admission via WhatsApp",
+                    facTitle: "🏫 Our Campus Facilities",
+                    facSciTitle: "Science Lab",
+                    facSciDesc: "Daily new Experiments",
+                    facLibTitle: "Library",
+                    facLibDesc: "New stock of Story books",
+                    facPlayTitle: "Play Area",
+                    facPlayDesc: "A huge Playground for kids",
+                    footerTitle: "School Contact Information",
+                    lblPhone: "Phone Number:",
+                    lblWa: "WhatsApp Number:",
+                    lblMail: "Email:",
+                    lblLoc: "Address:"
+                },
+                ur: {
+                    langBtn: "English",
+                    badge: "🎓 تعلیمی سال 2026-27",
+                    notice: "📢 نوٹس بورڈ: 1 اکتوبر کو تقریری مقابلے کا انعقاد کیا جا رہا ہے!",
+                    ticker: "🔔 نئے تعلیمی سیشن 2026-27 کے داخلے جاری ہیں! محدود نشستیں دستیاب ہیں۔ نیچے دیے گئے واٹس ایپ فارم کے ذریعے آن لائن اپلائی کریں۔",
+                    schoolDesc: `<strong class="text-red">البدر لائسیم</strong>، واقع رشید چوک، محلہ امن آباد، جھنگ صدر، معیاری تعلیم اور بہترین اخلاقی تربیت کے لیے کوشاں ہے۔ ہم تجربہ کار اساتذہ، جدید کلاس رومز اور غیر نصابی سرگرمیوں کے ساتھ ایک سازگار تعلیمی ماحول فراہم کرتے ہیں۔ ہمارا مقصد طالب علموں میں خود اعتمادی اور قیادت کی صلاحیتیں پیدا کرنا ہے۔`,
+                    statTeachers: "اساتذہ",
+                    statClasses: "کلاس رومز",
+                    formHeader: `<span class="text-blue">داخلہ فارم</span> <span class="text-red">البدر لائسیم</span>`,
+                    lblStudentName: "طالب علم کا نام:",
+                    phStudentName: "طالب علم کا مکمل نام درج کریں",
+                    lblFatherName: "والد کا نام:",
+                    phFatherName: "والد کا مکمل نام درج کری
