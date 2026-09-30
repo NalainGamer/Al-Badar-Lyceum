@@ -7,7 +7,6 @@
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Base Dark Theme Reset */
         * {
             margin: 0;
             padding: 0;
@@ -15,7 +14,6 @@
             font-family: 'Segoe UI', Arial, sans-serif;
         }
 
-        /* Dark Theme Body with 40% Overlay Background */
         body {
             min-height: 100vh;
             background: linear-gradient(rgba(10, 15, 26, 0.60), rgba(10, 15, 26, 0.60)),
@@ -27,7 +25,6 @@
             align-items: center;
         }
 
-        /* Top Navigation Bar */
         .top-bar {
             width: 100%;
             background: rgba(15, 23, 42, 0.95);
@@ -62,7 +59,6 @@
             color: #0f172a;
         }
 
-        /* Notice Board Banner */
         .notice-board {
             width: 100%;
             background: #cc0000;
@@ -75,7 +71,6 @@
             letter-spacing: 0.5px;
         }
 
-        /* News Ticker */
         .ticker-wrap {
             width: 100%;
             background: #1e1e24;
@@ -99,7 +94,6 @@
             100% { transform: translate3d(-100%, 0, 0); }
         }
 
-        /* Main Container Card */
         .main-container {
             width: 92%;
             max-width: 850px;
@@ -112,7 +106,6 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        /* Logo and Header Styling */
         .logo-section {
             text-align: center;
             margin-bottom: 25px;
@@ -151,7 +144,6 @@
             margin-bottom: 30px;
         }
 
-        /* Quick Stats Grid */
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -185,7 +177,6 @@
             margin-top: 4px;
         }
 
-        /* Form Card */
         .form-card {
             background: #1e293b;
             padding: 30px;
@@ -243,7 +234,6 @@
             box-shadow: 0 0 8px rgba(255, 77, 77, 0.3);
         }
 
-        /* Submit Button */
         .btn-whatsapp {
             width: 100%;
             background: linear-gradient(135deg, #25D366, #128C7E);
@@ -267,7 +257,6 @@
             box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
         }
 
-        /* Facilities Section */
         .facilities {
             margin-top: 35px;
         }
@@ -312,7 +301,6 @@
             color: #cbd5e1;
         }
 
-        /* Footer */
         footer {
             margin-top: 40px;
             padding-top: 20px;
@@ -343,7 +331,6 @@
             text-decoration: underline;
         }
 
-        /* RTL Urdu Adjustments */
         body.rtl {
             direction: rtl;
             text-align: right;
@@ -355,7 +342,6 @@
             text-align: justify;
         }
 
-        /* Responsive Design */
         @media (max-width: 650px) {
             .form-grid, .stats-grid {
                 grid-template-columns: 1fr;
@@ -374,7 +360,6 @@
 </head>
 <body>
 
-    <!-- Top Navigation Bar -->
     <div class="top-bar">
         <button class="lang-btn" onclick="toggleLanguage()">
             <i class="fa-solid fa-globe"></i> <span id="langBtnText">اردو (Urdu)</span>
@@ -384,12 +369,10 @@
         </div>
     </div>
 
-    <!-- Red Notice Board Banner -->
     <div class="notice-board" id="noticeBoard">
         📢 NOTICE BOARD: Speech Competition is going to be held on October 1st!
     </div>
 
-    <!-- Scrolling Announcements Ticker -->
     <div class="ticker-wrap">
         <div class="ticker" id="tickerText">
             🔔 Admissions Open for New Session 2026-27! Limited Seats Available. Visit Campus or Apply Online via WhatsApp Form Below.
@@ -397,7 +380,6 @@
     </div>
 
     <div class="main-container">
-        <!-- Logo & Title Section -->
         <div class="logo-section">
             <img src="Screenshot_2026-09-30-16-29-06-90.jpg" alt="Al Badar Lyceum Logo" class="logo-img">
             <h1 class="school-title">
@@ -407,12 +389,10 @@
             </h1>
         </div>
 
-        <!-- School Description -->
         <p class="school-description" id="schoolDesc">
             <strong class="text-red">Al Badar Lyceum</strong>, located at Rasheed Chowk, Muhalla Aman Abad in Jhang Sadar, is dedicated to fostering academic excellence and strong moral values. We provide a modern, supportive learning environment with experienced faculty, interactive classrooms, and diverse co-curricular activities. Our mission is to inspire critical thinking, nurture leadership, and empower every student for a successful future.
         </p>
 
-        <!-- Quick Stats Counter Section -->
         <div class="stats-grid">
             <div class="stat-card">
                 <i class="fa-solid fa-user-tie"></i>
@@ -426,7 +406,6 @@
             </div>
         </div>
 
-        <!-- Admission Form -->
         <div class="form-card">
             <h2 class="form-title" id="formHeaderTitle">
                 <span class="text-blue">Admission Form for</span> 
@@ -485,7 +464,6 @@
             </form>
         </div>
 
-        <!-- Campus Facilities Section -->
         <div class="facilities">
             <h3 class="facilities-title" id="facTitle">🏫 Our Campus Facilities</h3>
             <div class="fac-grid">
@@ -507,7 +485,6 @@
             </div>
         </div>
 
-        <!-- School Contact Information Footer -->
         <footer>
             <h3 class="text-blue" id="footerTitle">School Contact Information</h3>
             <ul class="contact-details">
@@ -519,11 +496,9 @@
         </footer>
     </div>
 
-    <!-- JavaScript Language & Redirection Logic -->
     <script>
         let currentLang = 'en';
 
-        // Translations Dictionary
         const translations = {
             en: {
                 langBtn: "اردو (Urdu)",
@@ -566,4 +541,16 @@
                 badge: "🎓 تعلیمی سال 2026-27",
                 notice: "📢 نوٹس بورڈ: 1 اکتوبر کو تقریری مقابلے کا انعقاد کیا جا رہا ہے!",
                 ticker: "🔔 نئے تعلیمی سیشن 2026-27 کے داخلے جاری ہیں! محدود نشستیں دستیاب ہیں۔ نیچے دیے گئے واٹس ایپ فارم کے ذریعے آن لائن اپلائی کریں۔",
-                schoolDesc: `<strong class="text-red">البدر لائسیم</strong>، واقع رشی
+                schoolDesc: `<strong class="text-red">البدر لائسیم</strong>، واقع رشید چوک، محلہ امن آباد، جھنگ صدر، معیاری تعلیم اور بہترین اخلاقی تربیت کے لیے کوشاں ہے۔ ہم تجربہ کار اساتذہ، جدید کلاس رومز اور غیر نصابی سرگرمیوں کے ساتھ ایک سازگار تعلیمی ماحول فراہم کرتے ہیں۔ ہمارا مقصد طالب علموں میں خود اعتمادی اور قیادت کی صلاحیتیں پیدا کرنا ہے۔`,
+                statTeachers: "اساتذہ",
+                statClasses: "کلاس رومز",
+                formHeader: `<span class="text-blue">داخلہ فارم</span> <span class="text-red">البدر لائسیم</span>`,
+                lblStudentName: "طالب علم کا نام:",
+                phStudentName: "طالب علم کا مکمل نام درج کریں",
+                lblFatherName: "والد کا نام:",
+                phFatherName: "والد کا مکمل نام درج کریں",
+                lblCnic: "ب فارم / شناختی کارڈ نمبر:",
+                phCnic: "مثلاً 33202-XXXXXXX-X",
+                lblClass: "مطلوبہ کلاس:",
+                lblContact: "فون / واٹس ایپ نمبر:",
+                phCont
