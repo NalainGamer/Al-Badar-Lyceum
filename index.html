@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -10,6 +11,7 @@
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
+
         * {
             margin: 0;
             padding: 0;
@@ -23,47 +25,76 @@
 
         body {
             min-height: 100vh;
+
             background:
-                linear-gradient(rgba(10, 15, 26, 0.68), rgba(10, 15, 26, 0.68)),
+                linear-gradient(
+                    rgba(10, 15, 26, 0.68),
+                    rgba(10, 15, 26, 0.68)
+                ),
                 url("https://images.unsplash.com/photo-1580582932707-520aed937b7b?q=80&w=1920&auto=format&fit=crop")
                 no-repeat center center fixed;
+
             background-size: cover;
+
             color: #f0f4f8;
+
             display: flex;
             flex-direction: column;
             align-items: center;
+
+            transition: direction 0.2s ease;
         }
 
         /* ================= TOP BAR ================= */
 
         .top-bar {
             width: 100%;
+
             background: rgba(15, 23, 42, 0.97);
+
             padding: 10px 15px;
+
             display: flex;
             justify-content: space-between;
             align-items: center;
+
             gap: 15px;
+
             border-bottom: 2px solid #e63946;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+
+            box-shadow:
+                0 4px 20px rgba(0,0,0,0.5);
+
             position: sticky;
             top: 0;
+
             z-index: 1000;
         }
 
         .lang-btn {
             background: #1e293b;
+
             color: #38bdf8;
+
             border: 2px solid #38bdf8;
+
             padding: 7px 14px;
+
             border-radius: 20px;
+
             cursor: pointer;
+
             font-weight: 700;
+
             font-size: 0.82rem;
+
             transition: 0.3s;
+
             display: flex;
             align-items: center;
+
             gap: 6px;
+
             white-space: nowrap;
         }
 
@@ -75,7 +106,9 @@
         .header-badge {
             font-weight: 700;
             font-size: 0.82rem;
+
             color: #ff4d4d;
+
             text-align: right;
         }
 
@@ -83,34 +116,54 @@
 
         .notice-board {
             width: 100%;
+
             background: #cc0000;
+
             color: white;
+
             padding: 10px 15px;
+
             font-size: 0.9rem;
+
             font-weight: 700;
+
             text-align: center;
-            box-shadow: 0 2px 10px rgba(204,0,0,0.4);
+
+            box-shadow:
+                0 2px 10px rgba(204,0,0,0.4);
         }
 
         .ticker-wrap {
             width: 100%;
+
             background: #1e1e24;
+
             color: #00e676;
+
             padding: 8px 0;
+
             font-size: 0.85rem;
+
             font-weight: 600;
+
             overflow: hidden;
+
             white-space: nowrap;
+
             border-bottom: 1px solid #333;
         }
 
         .ticker {
             display: inline-block;
+
             padding-left: 100%;
-            animation: ticker 25s linear infinite;
+
+            animation:
+                ticker 25s linear infinite;
         }
 
         @keyframes ticker {
+
             0% {
                 transform: translate3d(0,0,0);
             }
@@ -118,41 +171,64 @@
             100% {
                 transform: translate3d(-100%,0,0);
             }
+
         }
 
         /* ================= MAIN ================= */
 
         .main-container {
             width: 92%;
+
             max-width: 850px;
+
             margin: 20px auto;
+
             background: rgba(15,23,42,0.91);
+
             backdrop-filter: blur(7px);
+
             border-radius: 16px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.7);
+
+            box-shadow:
+                0 15px 35px rgba(0,0,0,0.7);
+
             padding: 25px;
-            border: 1px solid rgba(255,255,255,0.1);
+
+            border:
+                1px solid rgba(255,255,255,0.1);
         }
+
+        /* ================= LOGO ================= */
 
         .logo-section {
             text-align: center;
+
             margin-bottom: 25px;
         }
 
         .logo-img {
             width: 120px;
             height: 120px;
+
             object-fit: cover;
+
             border-radius: 50%;
+
             border: 4px solid #e63946;
-            box-shadow: 0 0 20px rgba(230,57,70,0.4);
+
+            box-shadow:
+                0 0 20px rgba(230,57,70,0.4);
+
             margin-bottom: 15px;
         }
 
         .school-title {
             font-size: 2.2rem;
+
             font-weight: 900;
+
             letter-spacing: 1.5px;
+
             margin-bottom: 10px;
         }
 
@@ -166,20 +242,32 @@
 
         .text-black {
             color: #ffffff;
-            text-shadow: 0 0 10px rgba(255,255,255,0.3);
+
+            text-shadow:
+                0 0 10px rgba(255,255,255,0.3);
         }
 
         /* ================= DESCRIPTION ================= */
 
         .school-description {
             font-size: 0.95rem;
+
             line-height: 1.7;
+
             color: #cbd5e1;
+
             text-align: justify;
-            background: rgba(30,41,59,0.7);
+
+            background:
+                rgba(30,41,59,0.7);
+
             padding: 18px 22px;
-            border-left: 4px solid #ff4d4d;
+
+            border-left:
+                4px solid #ff4d4d;
+
             border-radius: 8px;
+
             margin-bottom: 30px;
         }
 
@@ -187,34 +275,50 @@
 
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(2,1fr);
+
+            grid-template-columns:
+                repeat(2,1fr);
+
             gap: 15px;
+
             margin-bottom: 30px;
         }
 
         .stat-card {
-            background: rgba(30,41,59,0.8);
+            background:
+                rgba(30,41,59,0.8);
+
             padding: 20px;
+
             border-radius: 10px;
+
             text-align: center;
-            border: 1px solid rgba(255,255,255,0.05);
+
+            border:
+                1px solid rgba(255,255,255,0.05);
         }
 
         .stat-card i {
             font-size: 1.8rem;
+
             color: #38bdf8;
+
             margin-bottom: 8px;
         }
 
         .stat-card h4 {
             font-size: 1.4rem;
+
             color: #fff;
+
             font-weight: 800;
         }
 
         .stat-card p {
             font-size: 0.9rem;
+
             color: #cbd5e1;
+
             margin-top: 4px;
         }
 
@@ -222,25 +326,41 @@
 
         .form-card {
             background: #1e293b;
+
             padding: 25px;
+
             border-radius: 12px;
-            border-top: 4px solid #38bdf8;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+
+            border-top:
+                4px solid #38bdf8;
+
+            box-shadow:
+                0 10px 25px rgba(0,0,0,0.3);
         }
 
         .form-title {
             font-size: 1.4rem;
+
             font-weight: 700;
+
             text-align: center;
+
             margin-bottom: 25px;
+
             color: white;
-            border-bottom: 1px solid #334155;
+
+            border-bottom:
+                1px solid #334155;
+
             padding-bottom: 12px;
         }
 
         .form-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+
+            grid-template-columns:
+                1fr 1fr;
+
             gap: 15px;
         }
 
@@ -254,31 +374,58 @@
 
         .form-group label {
             display: block;
+
             font-weight: 600;
+
             margin-bottom: 6px;
+
             color: #38bdf8;
+
             font-size: 0.9rem;
         }
 
         .form-group input,
         .form-group textarea,
         .form-group select {
+
             width: 100%;
+
             padding: 12px 14px;
+
             font-size: 0.9rem;
+
             background: #0f172a;
+
             color: white;
-            border: 1.5px solid #334155;
+
+            border:
+                1.5px solid #334155;
+
             border-radius: 8px;
+
             outline: none;
+
             transition: 0.3s;
         }
 
         .form-group input:focus,
         .form-group textarea:focus,
         .form-group select:focus {
+
             border-color: #ff4d4d;
-            box-shadow: 0 0 8px rgba(255,77,77,0.3);
+
+            box-shadow:
+                0 0 8px rgba(255,77,77,0.3);
+        }
+
+        .form-group input.error,
+        .form-group textarea.error,
+        .form-group select.error {
+
+            border-color: #ff4d4d;
+
+            box-shadow:
+                0 0 8px rgba(255,77,77,0.35);
         }
 
         textarea {
@@ -287,37 +434,120 @@
 
         .optional-text {
             color: #94a3b8;
+
             font-size: 0.75rem;
+
             font-weight: normal;
         }
 
         /* ================= BUTTON ================= */
 
         .btn-whatsapp {
+
             width: 100%;
-            background: linear-gradient(135deg,#25D366,#128C7E);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #25D366,
+                    #128C7E
+                );
+
             color: white;
+
             font-size: 1rem;
+
             font-weight: 700;
+
             padding: 14px;
+
             border: none;
+
             border-radius: 8px;
+
             cursor: pointer;
+
             transition: 0.2s;
+
             display: flex;
+
             align-items: center;
+
             justify-content: center;
+
             gap: 10px;
+
             margin-top: 10px;
         }
 
         .btn-whatsapp:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(37,211,102,0.4);
+
+            transform:
+                translateY(-2px);
+
+            box-shadow:
+                0 6px 20px
+                rgba(37,211,102,0.4);
         }
 
         .btn-whatsapp:active {
-            transform: translateY(0);
+
+            transform:
+                translateY(0);
+        }
+
+        .btn-whatsapp:disabled {
+
+            opacity: 0.7;
+
+            cursor: wait;
+
+            transform: none;
+        }
+
+        /* ================= ERROR MESSAGE ================= */
+
+        .form-message {
+
+            display: none;
+
+            margin-bottom: 15px;
+
+            padding: 12px;
+
+            border-radius: 8px;
+
+            font-size: 0.9rem;
+
+            line-height: 1.5;
+
+            text-align: center;
+        }
+
+        .form-message.error-message {
+
+            display: block;
+
+            background:
+                rgba(220,38,38,0.15);
+
+            border:
+                1px solid #ef4444;
+
+            color: #fca5a5;
+        }
+
+        .form-message.success-message {
+
+            display: block;
+
+            background:
+                rgba(34,197,94,0.15);
+
+            border:
+                1px solid #22c55e;
+
+            color: #86efac;
         }
 
         /* ================= FACILITIES ================= */
@@ -327,97 +557,153 @@
         }
 
         .facilities-title {
+
             text-align: center;
+
             font-size: 1.3rem;
+
             color: #38bdf8;
+
             margin-bottom: 20px;
+
             font-weight: 700;
         }
 
         .fac-grid {
+
             display: grid;
-            grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+
+            grid-template-columns:
+                repeat(
+                    auto-fit,
+                    minmax(200px,1fr)
+                );
+
             gap: 15px;
         }
 
         .fac-item {
-            background: rgba(30,41,59,0.7);
+
+            background:
+                rgba(30,41,59,0.7);
+
             padding: 15px;
+
             border-radius: 10px;
+
             text-align: center;
-            border: 1px solid rgba(255,255,255,0.08);
+
+            border:
+                1px solid rgba(255,255,255,0.08);
         }
 
         .fac-item i {
+
             font-size: 1.6rem;
+
             color: #ff4d4d;
+
             margin-bottom: 8px;
+
             display: block;
         }
 
         .fac-item h5 {
+
             font-size: 1rem;
+
             color: white;
+
             margin-bottom: 5px;
         }
 
         .fac-item p {
+
             font-size: 0.85rem;
+
             color: #cbd5e1;
         }
 
         /* ================= FOOTER ================= */
 
         footer {
+
             margin-top: 35px;
+
             padding-top: 20px;
-            border-top: 1px solid #334155;
+
+            border-top:
+                1px solid #334155;
+
             text-align: center;
         }
 
         footer h3 {
+
             font-size: 1.1rem;
+
             margin-bottom: 12px;
+
             color: #38bdf8;
         }
 
         .contact-details {
+
             list-style: none;
+
             line-height: 2;
+
             font-size: 0.9rem;
+
             color: #cbd5e1;
         }
 
         .contact-details a {
+
             color: #38bdf8;
+
             text-decoration: none;
+
             font-weight: 600;
         }
 
         .contact-details a:hover {
+
             text-decoration: underline;
         }
 
         /* ================= RTL ================= */
 
         body.rtl {
+
             direction: rtl;
         }
 
         body.rtl .school-description {
+
             border-left: none;
-            border-right: 4px solid #ff4d4d;
+
+            border-right:
+                4px solid #ff4d4d;
+
             text-align: right;
         }
 
         body.rtl .header-badge {
+
             text-align: left;
         }
 
         body.rtl .form-group input,
         body.rtl .form-group textarea,
         body.rtl .form-group select {
+
             text-align: right;
+        }
+
+        body.rtl .form-title {
+
+            direction: rtl;
         }
 
         /* ================= MOBILE ================= */
@@ -426,78 +712,120 @@
 
             .form-grid,
             .stats-grid {
+
                 grid-template-columns: 1fr;
             }
 
             .full-width {
+
                 grid-column: span 1;
             }
 
             .school-title {
+
                 font-size: 1.7rem;
             }
 
             .main-container {
+
                 padding: 16px;
+
                 width: 95%;
             }
 
             .logo-img {
+
                 width: 100px;
                 height: 100px;
             }
 
             .top-bar {
+
                 padding: 9px 10px;
             }
 
             .header-badge {
+
                 font-size: 0.72rem;
             }
 
             .lang-btn {
+
                 font-size: 0.75rem;
+
                 padding: 6px 10px;
             }
+
         }
+
     </style>
+
 </head>
 
+
 <body>
+
 
 <!-- ================= TOP BAR ================= -->
 
 <div class="top-bar">
 
-    <button class="lang-btn" id="langToggleBtn" type="button">
+    <button
+        class="lang-btn"
+        id="langToggleBtn"
+        type="button"
+        onclick="toggleLanguage()"
+    >
+
         <i class="fa-solid fa-globe"></i>
-        <span id="langBtnText">اردو (Urdu)</span>
+
+        <span id="langBtnText">
+            اردو (Urdu)
+        </span>
+
     </button>
 
-    <div class="header-badge" id="badgeText">
+
+    <div
+        class="header-badge"
+        id="badgeText"
+    >
         🎓 Academic Year 2026-27
     </div>
 
 </div>
 
+
 <!-- ================= NOTICE ================= -->
 
-<div class="notice-board" id="noticeBoard">
+<div
+    class="notice-board"
+    id="noticeBoard"
+>
     📢 NOTICE BOARD: Speech Competition is going to be held on October 1st!
 </div>
 
+
 <div class="ticker-wrap">
-    <div class="ticker" id="tickerText">
-        🔔 Admissions Open for New Session 2026-27! Limited Seats Available.
+
+    <div
+        class="ticker"
+        id="tickerText"
+    >
+        🔔 Admissions Open for New Session 2026-27!
+        Limited Seats Available.
         Visit Campus or Apply Online via WhatsApp Form Below.
     </div>
+
 </div>
+
 
 <!-- ================= MAIN ================= -->
 
 <div class="main-container">
 
-    <!-- LOGO -->
+
+    <!-- ================= LOGO ================= -->
 
     <div class="logo-section">
 
@@ -507,37 +835,65 @@
             class="logo-img"
         >
 
+
         <h1 class="school-title">
-            <span class="text-blue">Al</span>
-            <span class="text-red">Badar</span>
-            <span class="text-black">Lyceum</span>
+
+            <span class="text-blue">
+                Al
+            </span>
+
+            <span class="text-red">
+                Badar
+            </span>
+
+            <span class="text-black">
+                Lyceum
+            </span>
+
         </h1>
 
     </div>
 
-    <!-- DESCRIPTION -->
 
-    <p class="school-description" id="schoolDesc">
+    <!-- ================= DESCRIPTION ================= -->
 
-        <strong class="text-red">Al Badar Lyceum</strong>,
-        located at Rasheed Chowk, Muhalla Aman Abad in Jhang Sadar,
-        is dedicated to fostering academic excellence and strong moral values.
-        We provide a modern, supportive learning environment with experienced
-        faculty, interactive classrooms, and diverse co-curricular activities.
-        Our mission is to inspire critical thinking, nurture leadership,
-        and empower every student for a successful future.
+    <p
+        class="school-description"
+        id="schoolDesc"
+    >
+
+        <strong class="text-red">
+            Al Badar Lyceum
+        </strong>,
+
+        located at Rasheed Chowk, Muhalla Aman Abad
+        in Jhang Sadar, is dedicated to fostering
+        academic excellence and strong moral values.
+
+        We provide a modern, supportive learning
+        environment with experienced faculty,
+        interactive classrooms, and diverse
+        co-curricular activities.
+
+        Our mission is to inspire critical thinking,
+        nurture leadership, and empower every
+        student for a successful future.
 
     </p>
 
-    <!-- STATS -->
+
+    <!-- ================= STATS ================= -->
 
     <div class="stats-grid">
+
 
         <div class="stat-card">
 
             <i class="fa-solid fa-user-tie"></i>
 
-            <h4>25</h4>
+            <h4>
+                25
+            </h4>
 
             <p id="statTeachers">
                 Teachers
@@ -545,11 +901,14 @@
 
         </div>
 
+
         <div class="stat-card">
 
             <i class="fa-solid fa-door-open"></i>
 
-            <h4>20</h4>
+            <h4>
+                20
+            </h4>
 
             <p id="statClasses">
                 Classes
@@ -559,11 +918,17 @@
 
     </div>
 
-    <!-- ADMISSION FORM -->
+
+    <!-- ================= ADMISSION FORM ================= -->
 
     <div class="form-card">
 
-        <h2 class="form-title" id="formHeaderTitle">
+
+        <h2
+            class="form-title"
+            id="formHeaderTitle"
+        >
+
             <span class="text-blue">
                 Admission Form for
             </span>
@@ -571,254 +936,141 @@
             <span class="text-red">
                 Al Badar Lyceum
             </span>
+
         </h2>
 
-        <form id="admissionForm">
+
+        <!--
+            IMPORTANT:
+
+            There are NO HTML "required" attributes here.
+
+            This prevents the browser from jumping back
+            to the top automatically.
+
+            Validation is handled by JavaScript below.
+        -->
+
+
+        <form
+            id="admissionForm"
+            onsubmit="sendToWhatsApp(event)"
+            novalidate
+        >
+
 
             <div class="form-grid">
 
-                <!-- Student Name -->
+
+                <!-- ================= STUDENT NAME ================= -->
 
                 <div class="form-group">
 
-                    <label id="lblStudentName" for="studentName">
+                    <label
+                        id="lblStudentName"
+                        for="studentName"
+                    >
                         Student Name:
                     </label>
+
 
                     <input
                         type="text"
                         id="studentName"
                         placeholder="Enter student's full name"
-                        required
+                        autocomplete="name"
                     >
 
                 </div>
 
-                <!-- Father Name -->
+
+                <!-- ================= FATHER NAME ================= -->
 
                 <div class="form-group">
 
-                    <label id="lblFatherName" for="fatherName">
+                    <label
+                        id="lblFatherName"
+                        for="fatherName"
+                    >
                         Father Name:
                     </label>
+
 
                     <input
                         type="text"
                         id="fatherName"
                         placeholder="Enter father's full name"
-                        required
+                        autocomplete="name"
                     >
 
                 </div>
 
-                <!-- CNIC -->
+
+                <!-- ================= CNIC ================= -->
 
                 <div class="form-group">
 
-                    <label id="lblCnic" for="cnicNumber">
+                    <label
+                        id="lblCnic"
+                        for="cnicNumber"
+                    >
                         B-Form / CNIC Number:
                     </label>
+
 
                     <input
                         type="text"
                         id="cnicNumber"
                         placeholder="e.g. 33202-XXXXXXX-X"
-                        required
+                        autocomplete="off"
                     >
 
                 </div>
 
-                <!-- CLASS -->
+
+                <!-- ================= CLASS ================= -->
 
                 <div class="form-group">
 
-                    <label id="lblClass" for="applyClass">
+                    <label
+                        id="lblClass"
+                        for="applyClass"
+                    >
                         Grade / Class to Apply:
                     </label>
 
-                    <select id="applyClass" required>
 
-                        <option value="">
+                    <select
+                        id="applyClass"
+                    >
+
+                        <option
+                            value=""
+                            id="classDefault"
+                        >
                             Select Class
                         </option>
+
 
                         <option value="Playgroup / Nursery">
                             Playgroup / Nursery
                         </option>
 
+
                         <option value="Prep">
                             Prep
                         </option>
+
 
                         <option value="Class 1 to 5">
                             Class 1 to 5
                         </option>
 
+
                         <option value="Class 6 to 8">
                             Class 6 to 8
                         </option>
 
+
                         <option value="Matric (9th / 10th)">
-                            Matric (9th / 10th)
-                        </option>
-
-                    </select>
-
-                </div>
-
-                <!-- CONTACT -->
-
-                <div class="form-group">
-
-                    <label id="lblContact" for="contactNumber">
-                        Phone / WhatsApp Number:
-                    </label>
-
-                    <input
-                        type="tel"
-                        id="contactNumber"
-                        placeholder="e.g. 0345 1234567"
-                        required
-                    >
-
-                </div>
-
-                <!-- EMAIL OPTIONAL -->
-
-                <div class="form-group">
-
-                    <label id="lblEmail" for="email">
-                        Email Address
-                        <span class="optional-text">
-                            (Optional)
-                        </span>
-                    </label>
-
-                    <input
-                        type="email"
-                        id="email"
-                        placeholder="example@mail.com"
-                    >
-
-                </div>
-
-                <!-- ADDRESS -->
-
-                <div class="form-group full-width">
-
-                    <label id="lblAddress" for="address">
-                        Residential Address:
-                    </label>
-
-                    <textarea
-                        id="address"
-                        rows="2"
-                        placeholder="Enter full home address"
-                        required
-                    ></textarea>
-
-                </div>
-
-            </div>
-
-            <!-- WHATSAPP BUTTON -->
-
-            <button
-                type="submit"
-                class="btn-whatsapp"
-                id="btnSubmit"
-            >
-
-                <i
-                    class="fa-brands fa-whatsapp"
-                    style="font-size:1.3rem;"
-                ></i>
-
-                <span id="btnText">
-                    Confirm Admission via WhatsApp
-                </span>
-
-            </button>
-
-        </form>
-
-    </div>
-
-    <!-- FACILITIES -->
-
-    <div class="facilities">
-
-        <h3 class="facilities-title" id="facTitle">
-            🏫 Our Campus Facilities
-        </h3>
-
-        <div class="fac-grid">
-
-            <div class="fac-item">
-
-                <i class="fa-solid fa-vial"></i>
-
-                <h5 id="facSciTitle">
-                    Science Lab
-                </h5>
-
-                <p id="facSciDesc">
-                    Daily new Experiments
-                </p>
-
-            </div>
-
-            <div class="fac-item">
-
-                <i class="fa-solid fa-book"></i>
-
-                <h5 id="facLibTitle">
-                    Library
-                </h5>
-
-                <p id="facLibDesc">
-                    New stock of Story books
-                </p>
-
-            </div>
-
-            <div class="fac-item">
-
-                <i class="fa-solid fa-child-reaching"></i>
-
-                <h5 id="facPlayTitle">
-                    Play Area
-                </h5>
-
-                <p id="facPlayDesc">
-                    A huge Playground for kids
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
-
-    <!-- FOOTER -->
-
-    <footer>
-
-        <h3 id="footerTitle">
-            School Contact Information
-        </h3>
-
-        <ul class="contact-details">
-
-            <li>
-                <strong id="lblPhone">
-                    Phone Number:
-                </strong>
-
-                <a href="tel:03453931931">
-                    0345 3931931
-                </a>
-            </li>
-
-            <li>
-                <strong id="
+  
