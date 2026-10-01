@@ -136,7 +136,7 @@
             line-height: 1.45;
         }
 
-        /* SCHOOL FACILITIES */
+        /* FACILITIES */
 
         .facilities {
             display: grid;
@@ -180,7 +180,7 @@
             font-weight: bold;
         }
 
-        /* ADMISSION FORM */
+        /* FORM */
 
         .admission-box {
             background: #f7fbff;
@@ -240,7 +240,7 @@
             resize: vertical;
         }
 
-        /* WHATSAPP BUTTON */
+        /* WHATSAPP */
 
         .submit-area {
             text-align: center;
@@ -248,7 +248,6 @@
         }
 
         .btn-whatsapp {
-            display: block;
             width: 100%;
             max-width: 430px;
             margin: auto;
@@ -256,13 +255,13 @@
             border-radius: 9px;
             background: #25D366;
             color: white;
-            text-decoration: none;
             font-size: 16px;
             font-weight: bold;
             text-align: center;
             box-shadow: 0 5px 12px rgba(37,211,102,0.3);
             cursor: pointer;
             border: none;
+            display: block;
         }
 
         .btn-whatsapp:hover {
@@ -365,7 +364,7 @@
     </header>
 
 
-    <!-- CONTACT BAR -->
+    <!-- CONTACT -->
 
     <div class="contact-bar">
 
@@ -413,7 +412,7 @@
     </section>
 
 
-    <!-- SCHOOL FACILITIES -->
+    <!-- FACILITIES -->
 
     <section>
 
@@ -475,7 +474,7 @@
     </section>
 
 
-    <!-- ADMISSION FORM -->
+    <!-- ADMISSION -->
 
     <section>
 
@@ -488,9 +487,6 @@
             <form id="admissionForm" onsubmit="return false;">
 
                 <div class="form-grid">
-
-
-                    <!-- STUDENT NAME -->
 
                     <div class="form-group">
 
@@ -508,8 +504,6 @@
                     </div>
 
 
-                    <!-- FATHER NAME -->
-
                     <div class="form-group">
 
                         <label for="fatherName">
@@ -526,8 +520,6 @@
                     </div>
 
 
-                    <!-- DATE OF BIRTH -->
-
                     <div class="form-group">
 
                         <label for="dob">
@@ -542,8 +534,6 @@
 
                     </div>
 
-
-                    <!-- GENDER -->
 
                     <div class="form-group">
 
@@ -571,8 +561,6 @@
                     </div>
 
 
-                    <!-- CLASS -->
-
                     <div class="form-group">
 
                         <label for="classApplying">
@@ -586,64 +574,24 @@
                                 Select Class
                             </option>
 
-                            <option value="Play Group">
-                                Play Group
-                            </option>
-
-                            <option value="Nursery">
-                                Nursery
-                            </option>
-
-                            <option value="Prep">
-                                Prep
-                            </option>
-
-                            <option value="Class 1">
-                                Class 1
-                            </option>
-
-                            <option value="Class 2">
-                                Class 2
-                            </option>
-
-                            <option value="Class 3">
-                                Class 3
-                            </option>
-
-                            <option value="Class 4">
-                                Class 4
-                            </option>
-
-                            <option value="Class 5">
-                                Class 5
-                            </option>
-
-                            <option value="Class 6">
-                                Class 6
-                            </option>
-
-                            <option value="Class 7">
-                                Class 7
-                            </option>
-
-                            <option value="Class 8">
-                                Class 8
-                            </option>
-
-                            <option value="Class 9">
-                                Class 9
-                            </option>
-
-                            <option value="Class 10">
-                                Class 10
-                            </option>
+                            <option value="Play Group">Play Group</option>
+                            <option value="Nursery">Nursery</option>
+                            <option value="Prep">Prep</option>
+                            <option value="Class 1">Class 1</option>
+                            <option value="Class 2">Class 2</option>
+                            <option value="Class 3">Class 3</option>
+                            <option value="Class 4">Class 4</option>
+                            <option value="Class 5">Class 5</option>
+                            <option value="Class 6">Class 6</option>
+                            <option value="Class 7">Class 7</option>
+                            <option value="Class 8">Class 8</option>
+                            <option value="Class 9">Class 9</option>
+                            <option value="Class 10">Class 10</option>
 
                         </select>
 
                     </div>
 
-
-                    <!-- PREVIOUS SCHOOL -->
 
                     <div class="form-group">
 
@@ -659,8 +607,6 @@
 
                     </div>
 
-
-                    <!-- PARENT CONTACT -->
 
                     <div class="form-group">
 
@@ -678,8 +624,6 @@
                     </div>
 
 
-                    <!-- EMERGENCY CONTACT -->
-
                     <div class="form-group">
 
                         <label for="emergencyContact">
@@ -694,8 +638,6 @@
 
                     </div>
 
-
-                    <!-- EMAIL -->
 
                     <div class="form-group">
 
@@ -712,8 +654,6 @@
                     </div>
 
 
-                    <!-- ADDRESS -->
-
                     <div class="form-group full">
 
                         <label for="address">
@@ -729,8 +669,6 @@
                     </div>
 
 
-                    <!-- MEDICAL -->
-
                     <div class="form-group full">
 
                         <label for="medicalInfo">
@@ -744,8 +682,6 @@
 
                     </div>
 
-
-                    <!-- REMARKS -->
 
                     <div class="form-group full">
 
@@ -763,17 +699,17 @@
                 </div>
 
 
-                <!-- WHATSAPP -->
+                <!-- WHATSAPP BUTTON -->
 
                 <div class="submit-area">
 
-                    <a
+                    <button
+                        type="button"
                         id="whatsappButton"
                         class="btn-whatsapp"
-                        href="https://wa.me/923453931931"
                     >
                         💬 Confirm Admission via WhatsApp
-                    </a>
+                    </button>
 
                     <p class="whatsapp-note">
                         Your admission information will be prepared in WhatsApp.
@@ -800,18 +736,18 @@
 </div>
 
 
-<!-- WHATSAPP SCRIPT -->
-
 <script>
 
-(function () {
+document.addEventListener("DOMContentLoaded", function () {
 
-    const button = document.getElementById("whatsappButton");
+    const whatsappButton =
+        document.getElementById("whatsappButton");
 
 
     function getValue(id) {
 
-        const element = document.getElementById(id);
+        const element =
+            document.getElementById(id);
 
         if (!element) {
             return "";
@@ -822,8 +758,70 @@
     }
 
 
-    button.addEventListener("click", function (event) {
+    whatsappButton.addEventListener("click", function () {
 
         /*
-         * Prevent the basic WhatsApp link for a moment.
-         * We first build the complete messa
+         * READ ALL FORM INFORMATION
+         */
+
+        const studentName =
+            getValue("studentName");
+
+        const fatherName =
+            getValue("fatherName");
+
+        const dob =
+            getValue("dob");
+
+        const gender =
+            getValue("gender");
+
+        const classApplying =
+            getValue("classApplying");
+
+        const previousSchool =
+            getValue("previousSchool");
+
+        const parentContact =
+            getValue("parentContact");
+
+        const emergencyContact =
+            getValue("emergencyContact");
+
+        const parentEmail =
+            getValue("parentEmail");
+
+        const address =
+            getValue("address");
+
+        const medicalInfo =
+            getValue("medicalInfo");
+
+        const remarks =
+            getValue("remarks");
+
+
+        /*
+         * CREATE COMPLETE MESSAGE
+         */
+
+        const message =
+`*Al Badar Lyceum - New Admission Request*
+
+*Student Information*
+
+Student Name: ${studentName || "Not provided"}
+Father's Name: ${fatherName || "Not provided"}
+Date of Birth: ${dob || "Not provided"}
+Gender: ${gender || "Not provided"}
+Class Applying For: ${classApplying || "Not provided"}
+
+*Previous Education*
+
+Previous School: ${previousSchool || "Not provided"}
+
+*Contact Information*
+
+Parent/Guardian Contact: ${parentContact || "Not provided"}
+Emergency Contact: ${emergencyContact || "Not provided"}
+Parent/Guardian Email: $
