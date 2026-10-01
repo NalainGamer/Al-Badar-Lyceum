@@ -1,1063 +1,733 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#0756b8">
-
-<title>Al Badar Lyceum - Admission Portal</title>
-
-<style>
-*{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    font-family:Arial,Helvetica,sans-serif;
-    background:
-        linear-gradient(rgba(0,35,80,.72),rgba(0,35,80,.72)),
-        url("Screenshot_2026-09-30-16-29-06-90.jpg")
-        center/cover fixed no-repeat;
-    color:#172033;
-    min-height:100vh;
-    line-height:1.45;
-    overflow-x:hidden;
-}
-
-img{
-    max-width:100%;
-    display:block;
-}
-
-button,input,select,textarea{
-    font:inherit;
-}
-
-.page{
-    width:94%;
-    max-width:850px;
-    margin:18px auto;
-}
-
-.container{
-    background:rgba(255,255,255,.97);
-    border:3px solid #0756b8;
-    border-radius:18px;
-    overflow:hidden;
-    box-shadow:0 12px 35px rgba(0,0,0,.25);
-}
-
-
-/* =========================
-   HEADER
-========================= */
-
-.header{
-    text-align:center;
-    padding:20px 18px 17px;
-    background:linear-gradient(135deg,#fff,#eef6ff);
-    border-bottom:1px solid #d8e5f2;
-}
-
-.school-logo{
-    width:82px;
-    height:82px;
-    object-fit:cover;
-    border-radius:50%;
-    margin:0 auto 9px;
-    border:3px solid #0756b8;
-    background:#fff;
-}
-
-.school-name{
-    font-size:clamp(29px,6vw,43px);
-    line-height:1.05;
-    font-weight:800;
-}
-
-.blue{
-    color:#0756b8;
-}
-
-.red{
-    color:#d52222;
-}
-
-.black{
-    color:#172033;
-}
-
-.tagline{
-    margin-top:5px;
-    font-size:12px;
-    font-weight:bold;
-    color:#596779;
-}
-
-.school-description{
-    max-width:720px;
-    margin:9px auto 0;
-    font-size:12px;
-    line-height:1.45;
-    color:#596779;
-}
-
-
-/* =========================
-   CONTACT
-========================= */
-
-.contact-bar{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:6px;
-    padding:8px;
-    background:#0756b8;
-}
-
-.contact-item{
-    color:#fff;
-    font-size:10px;
-    font-weight:bold;
-    padding:4px 8px;
-    border-radius:15px;
-    background:rgba(255,255,255,.14);
-}
-
-
-/* =========================
-   CONTENT
-========================= */
-
-.content{
-    padding:15px;
-}
-
-.section{
-    margin-bottom:17px;
-}
-
-.section-title{
-    display:flex;
-    align-items:center;
-    gap:7px;
-    color:#0756b8;
-    font-size:19px;
-    margin-bottom:9px;
-}
-
-.section-title::after{
-    content:"";
-    flex:1;
-    height:2px;
-    background:linear-gradient(90deg,#0756b8,transparent);
-}
-
-
-/* =========================
-   NOTICE BOARD
-========================= */
-
-.notice-board{
-    background:#fff8e5;
-    border:1px solid #f0ce72;
-    border-left:4px solid #e5a900;
-    border-radius:10px;
-    padding:9px 12px;
-}
-
-.notice-top{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:8px;
-    flex-wrap:wrap;
-}
-
-.notice-heading{
-    color:#946300;
-    font-size:12px;
-    font-weight:bold;
-}
-
-.notice-event{
-    color:#0756b8;
-    font-size:13px;
-    font-weight:800;
-}
-
-.notice-text{
-    margin-top:3px;
-    color:#655b47;
-    font-size:10.5px;
-    line-height:1.35;
-}
-
-
-/* =========================
-   COMPACT FACILITIES
-========================= */
-
-.facilities{
-    display:grid;
-    grid-template-columns:repeat(3,minmax(0,1fr));
-    gap:8px;
-}
-
-.facility-card{
-    min-width:0;
-    padding:10px 8px;
-    border:1px solid #dbe6f2;
-    border-radius:10px;
-    background:#f7fbff;
-}
-
-.facility-icon{
-    font-size:20px;
-    margin-bottom:3px;
-}
-
-.facility-card h3{
-    color:#0756b8;
-    font-size:13px;
-    margin-bottom:3px;
-}
-
-.facility-card p{
-    color:#657282;
-    font-size:9.5px;
-    line-height:1.3;
-}
-
-.coming-soon{
-    display:inline-block;
-    margin-top:5px;
-    padding:2px 6px;
-    border-radius:10px;
-    background:#fff0bd;
-    border:1px solid #edcf75;
-    color:#8d6200;
-    font-size:8px;
-    font-weight:bold;
-}
-
-
-/* =========================
-   FORM
-========================= */
-
-.form-card{
-    background:#fff;
-    border:1px solid #dce6f0;
-    border-radius:12px;
-    padding:14px;
-}
-
-.form-grid{
-    display:grid;
-    grid-template-columns:repeat(2,minmax(0,1fr));
-    gap:11px;
-}
-
-.field{
-    min-width:0;
-}
-
-.field.full{
-    grid-column:1/-1;
-}
-
-label{
-    display:block;
-    margin-bottom:4px;
-    color:#26384e;
-    font-size:11px;
-    font-weight:800;
-}
-
-.required{
-    color:#d52222;
-}
-
-input,
-select,
-textarea{
-    width:100%;
-    border:1px solid #cbd8e5;
-    border-radius:8px;
-    background:#fff;
-    color:#172033;
-    padding:9px 10px;
-    outline:none;
-}
-
-input,
-select{
-    height:39px;
-}
-
-textarea{
-    min-height:72px;
-    resize:vertical;
-}
-
-input:focus,
-select:focus,
-textarea:focus{
-    border-color:#0756b8;
-    box-shadow:0 0 0 2px rgba(7,86,184,.10);
-}
-
-input::placeholder,
-textarea::placeholder{
-    color:#9ba7b4;
-    font-size:11px;
-}
-
-
-/* =========================
-   WHATSAPP BUTTON
-========================= */
-
-.submit-area{
-    margin-top:13px;
-    padding-top:12px;
-    border-top:1px solid #e1e8ef;
-}
-
-.btn-whatsapp{
-    width:100%;
-    min-height:46px;
-    border:0;
-    border-radius:9px;
-    background:linear-gradient(135deg,#20b957,#128c45);
-    color:#fff;
-    font-size:14px;
-    font-weight:800;
-    cursor:pointer;
-    box-shadow:0 5px 13px rgba(18,140,69,.20);
-}
-
-.btn-whatsapp:active{
-    transform:scale(.99);
-}
-
-.submit-note{
-    text-align:center;
-    margin-top:6px;
-    color:#74808d;
-    font-size:9px;
-}
-
-
-/* =========================
-   FOOTER
-========================= */
-
-.footer{
-    text-align:center;
-    background:#082c55;
-    color:#fff;
-    padding:12px;
-}
-
-.footer-school{
-    font-size:14px;
-    font-weight:800;
-}
-
-.footer-info{
-    margin-top:3px;
-    color:#d9e7f5;
-    font-size:9px;
-    line-height:1.5;
-}
-
-
-/* =========================
-   MOBILE
-========================= */
-
-@media(max-width:600px){
-
-    body{
-        background-attachment:scroll;
-    }
-
-    .page{
-        width:96%;
-        margin:9px auto;
-    }
-
-    .container{
-        border-width:2px;
-        border-radius:13px;
-    }
-
-    .header{
-        padding:16px 12px 13px;
-    }
-
-    .school-logo{
-        width:70px;
-        height:70px;
-    }
-
-    .school-description{
-        font-size:10.5px;
-    }
-
-    .content{
-        padding:11px;
-    }
-
-    .section{
-        margin-bottom:13px;
-    }
-
-    .section-title{
-        font-size:17px;
-        margin-bottom:7px;
-    }
-
-    .form-grid{
-        grid-template-columns:1fr;
-        gap:9px;
-    }
-
-    .field.full{
-        grid-column:auto;
-    }
-
-    .form-card{
-        padding:11px;
-    }
-
-    .facilities{
-        grid-template-columns:repeat(3,minmax(0,1fr));
-        gap:5px;
-    }
-
-    .facility-card{
-        padding:8px 5px;
-    }
-
-    .facility-icon{
-        font-size:17px;
-    }
-
-    .facility-card h3{
-        font-size:11px;
-    }
-
-    .facility-card p{
-        font-size:8px;
-    }
-
-    .notice-text{
-        font-size:9px;
-    }
-
-    input,
-    select{
-        height:40px;
-    }
-}
-
-
-/* Very small phones */
-
-@media(max-width:360px){
-
-    .facilities{
-        grid-template-columns:1fr;
-    }
-
-    .facility-card{
-        padding:8px;
-    }
-
-    .facility-card p{
-        font-size:9px;
-    }
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Al Badar Lyceum - Admission Portal</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background:
+                linear-gradient(rgba(0, 30, 70, 0.72), rgba(0, 30, 70, 0.72)),
+                url("https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1600&q=80")
+                center/cover fixed;
+            color: #222;
+            min-height: 100vh;
+            padding: 15px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 850px;
+            margin: auto;
+            background: rgba(255, 255, 255, 0.97);
+            border: 3px solid #0b5ed7;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.3);
+        }
+
+        header {
+            text-align: center;
+            padding: 20px 15px 15px;
+            background: linear-gradient(135deg, #eaf4ff, #ffffff);
+        }
+
+        .logo {
+            width: 105px;
+            height: 105px;
+            object-fit: contain;
+            border-radius: 50%;
+            margin-bottom: 8px;
+        }
+
+        .school-name {
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .school-name .blue {
+            color: #075bd3;
+        }
+
+        .school-name .red {
+            color: #d71920;
+        }
+
+        .school-name .black {
+            color: #111;
+        }
+
+        .description {
+            max-width: 730px;
+            margin: auto;
+            line-height: 1.5;
+            color: #444;
+            font-size: 14px;
+        }
+
+        .contact-bar {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+            padding: 10px;
+            background: #075bd3;
+            color: white;
+            font-size: 13px;
+        }
+
+        .contact-item {
+            padding: 5px 10px;
+            border-radius: 20px;
+            background: rgba(255,255,255,0.15);
+        }
+
+        section {
+            padding: 18px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 23px;
+            color: #075bd3;
+            margin-bottom: 12px;
+        }
+
+        /* NOTICE BOARD */
+
+        .notice-board {
+            background: #fff8d9;
+            border: 2px solid #f1c40f;
+            border-radius: 12px;
+            padding: 14px;
+        }
+
+        .notice-board h2 {
+            text-align: center;
+            color: #9b7300;
+            font-size: 21px;
+            margin-bottom: 8px;
+        }
+
+        .notice {
+            background: white;
+            border-left: 5px solid #f1c40f;
+            padding: 10px 12px;
+            border-radius: 7px;
+        }
+
+        .notice strong {
+            color: #d35400;
+        }
+
+        .notice p {
+            margin-top: 5px;
+            line-height: 1.45;
+            font-size: 14px;
+        }
+
+        /* FACILITIES */
+
+        .facilities {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+
+        .facility {
+            background: #f5f9ff;
+            border: 1px solid #c9ddf7;
+            border-radius: 10px;
+            padding: 12px;
+            text-align: center;
+        }
+
+        .facility-icon {
+            font-size: 28px;
+            margin-bottom: 5px;
+        }
+
+        .facility h3 {
+            color: #075bd3;
+            font-size: 17px;
+            margin-bottom: 5px;
+        }
+
+        .facility p {
+            font-size: 12px;
+            line-height: 1.4;
+            color: #444;
+        }
+
+        .coming-soon {
+            display: inline-block;
+            margin-top: 7px;
+            padding: 4px 8px;
+            border-radius: 12px;
+            background: #ffcc00;
+            color: #222;
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        /* ADMISSION */
+
+        .admission-box {
+            background: #f7fbff;
+            border: 2px solid #cfe2ff;
+            border-radius: 13px;
+            padding: 15px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .full {
+            grid-column: 1 / -1;
+        }
+
+        label {
+            font-size: 13px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            border: 1px solid #b8c7d9;
+            border-radius: 7px;
+            padding: 10px;
+            font-family: inherit;
+            font-size: 14px;
+            background: white;
+            outline: none;
+            transition: 0.2s;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #075bd3;
+            box-shadow: 0 0 0 2px rgba(7, 91, 211, 0.1);
+        }
+
+        textarea {
+            min-height: 75px;
+            resize: vertical;
+        }
+
+        .required {
+            color: #d71920;
+        }
+
+        .submit-area {
+            text-align: center;
+            margin-top: 18px;
+        }
+
+        .btn-whatsapp {
+            width: 100%;
+            max-width: 420px;
+            border: none;
+            border-radius: 9px;
+            padding: 14px 20px;
+            background: #25D366;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 5px 12px rgba(37, 211, 102, 0.3);
+            transition: 0.2s;
+        }
+
+        .btn-whatsapp:hover {
+            background: #1ebe5d;
+            transform: translateY(-1px);
+        }
+
+        .btn-whatsapp:active {
+            transform: translateY(0);
+        }
+
+        .btn-whatsapp:disabled {
+            opacity: 0.7;
+            cursor: wait;
+        }
+
+        .whatsapp-note {
+            margin-top: 8px;
+            color: #666;
+            font-size: 12px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            background: #075bd3;
+            color: white;
+            font-size: 12px;
+        }
+
+        @media (max-width: 650px) {
+            body {
+                padding: 7px;
+            }
+
+            .container {
+                border-width: 2px;
+                border-radius: 12px;
+            }
+
+            .school-name {
+                font-size: 25px;
+            }
+
+            .logo {
+                width: 85px;
+                height: 85px;
+            }
+
+            section {
+                padding: 12px;
+            }
+
+            .facilities {
+                grid-template-columns: 1fr;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .full {
+                grid-column: auto;
+            }
+
+            .contact-bar {
+                font-size: 12px;
+            }
+        }
+    </style>
 </head>
-
 
 <body>
 
-<div class="page">
+<div class="container">
 
-<main class="container">
+    <header>
+        <img
+            src="Screenshot_2026-09-30-16-29-06-90.jpg"
+            alt="Al Badar Lyceum Logo"
+            class="logo"
+        >
 
+        <div class="school-name">
+            <span class="blue">Al</span>
+            <span class="red">Badar</span>
+            <span class="black">Lyceum</span>
+        </div>
 
-<!-- =========================
-     HEADER
-========================= -->
+        <p class="description">
+            Al Badar Lyceum, located at Rasheed Chowk, Muhalla Aman Abad in Jhang Sadar,
+            is dedicated to fostering academic excellence and strong moral values.
+            We provide a modern, supportive learning environment with experienced faculty,
+            interactive classrooms, and diverse co-curricular activities.
+            Our mission is to inspire critical thinking, nurture leadership,
+            and empower every student for a successful future.
+        </p>
+    </header>
 
-<header class="header">
-
-    <img
-        class="school-logo"
-        src="Screenshot_2026-09-30-16-29-06-90.jpg"
-        width="82"
-        height="82"
-        alt="Al Badar Lyceum Logo"
-    >
-
-    <h1 class="school-name">
-        <span class="blue">Al</span>
-        <span class="red">Badar</span>
-        <span class="black">Lyceum</span>
-    </h1>
-
-    <p class="tagline">
-        Excellence in Education • Character • Leadership
-    </p>
-
-    <p class="school-description">
-        Al Badar Lyceum, located at Rasheed Chowk, Muhalla Aman Abad in
-        Jhang Sadar, is dedicated to academic excellence and strong moral
-        values. We provide a modern, supportive learning environment with
-        experienced faculty, interactive classrooms, and diverse
-        co-curricular activities.
-    </p>
-
-</header>
-
-
-<!-- =========================
-     CONTACT BAR
-========================= -->
-
-<div class="contact-bar">
-
-    <div class="contact-item">
-        📍 Rasheed Chowk, Jhang Sadar
+    <div class="contact-bar">
+        <div class="contact-item">📍 Rasheed Chowk, Jhang Sadar</div>
+        <div class="contact-item">📞 03453931931</div>
+        <div class="contact-item">💬 WhatsApp Available</div>
+        <div class="contact-item">✉️ albadarschooljhg@gmail.com</div>
     </div>
 
-    <div class="contact-item">
-        📞 03453931931
-    </div>
 
-    <div class="contact-item">
-        💬 WhatsApp Available
-    </div>
+    <!-- NOTICE BOARD -->
 
-</div>
+    <section>
+        <div class="notice-board">
 
+            <h2>📢 School Notice Board</h2>
 
-<div class="content">
+            <div class="notice">
+                <strong>🎤 Speech Competition</strong>
 
-
-<!-- =========================
-     NOTICE BOARD
-========================= -->
-
-<section class="section">
-
-    <h2 class="section-title">
-        📢 School Notice Board
-    </h2>
-
-    <div class="notice-board">
-
-        <div class="notice-top">
-
-            <div class="notice-heading">
-                Current Event
+                <p>
+                    Al Badar Lyceum is currently organizing a Speech Competition.
+                    Students are encouraged to participate, express their ideas confidently,
+                    and demonstrate their speaking skills.
+                </p>
             </div>
 
-            <div class="notice-event">
-                🎤 Speech Competition
+        </div>
+    </section>
+
+
+    <!-- SCHOOL FACILITIES -->
+
+    <section>
+
+        <h2 class="section-title">🏫 School Facilities</h2>
+
+        <div class="facilities">
+
+            <div class="facility">
+                <div class="facility-icon">📚</div>
+
+                <h3>Library</h3>
+
+                <p>
+                    Our library provides a quiet and peaceful environment where students
+                    can focus on reading and learning. New story books are added regularly
+                    to encourage reading habits and imagination.
+                </p>
+            </div>
+
+
+            <div class="facility">
+                <div class="facility-icon">⚽</div>
+
+                <h3>Playground</h3>
+
+                <p>
+                    Our playground provides students with an opportunity to participate
+                    in daily sports and physical activities. Regular outdoor activities
+                    help students stay active, energetic, and engaged.
+                </p>
+            </div>
+
+
+            <div class="facility">
+                <div class="facility-icon">🔬</div>
+
+                <h3>Science Lab</h3>
+
+                <p>
+                    A dedicated science laboratory is being planned to provide students
+                    with practical learning experiences and hands-on scientific activities.
+                </p>
+
+                <span class="coming-soon">Coming Soon</span>
             </div>
 
         </div>
 
-        <p class="notice-text">
-            Al Badar Lyceum is currently organizing a Speech Competition.
-            Students are encouraged to participate, express their ideas
-            confidently, and demonstrate their speaking skills.
-        </p>
-
-    </div>
-
-</section>
+    </section>
 
 
-<!-- =========================
-     FACILITIES
-========================= -->
+    <!-- ADMISSION FORM -->
 
-<section class="section">
+    <section>
 
-    <h2 class="section-title">
-        🏫 School Facilities
-    </h2>
+        <h2 class="section-title">📝 Admission Form</h2>
 
-    <div class="facilities">
+        <div class="admission-box">
 
+            <form id="admissionForm">
 
-        <article class="facility-card">
+                <div class="form-grid">
 
-            <div class="facility-icon">📚</div>
+                    <div class="form-group">
+                        <label for="studentName">
+                            Student Full Name <span class="required">*</span>
+                        </label>
 
-            <h3>Library</h3>
-
-            <p>
-                Quiet reading space with new story books added regularly.
-            </p>
-
-        </article>
-
-
-        <article class="facility-card">
-
-            <div class="facility-icon">⚽</div>
-
-            <h3>Playground</h3>
-
-            <p>
-                Students enjoy daily sports and outdoor activities.
-            </p>
-
-        </article>
+                        <input
+                            type="text"
+                            id="studentName"
+                            placeholder="Enter student's full name"
+                            required
+                        >
+                    </div>
 
 
-        <article class="facility-card">
+                    <div class="form-group">
+                        <label for="fatherName">
+                            Father's Full Name <span class="required">*</span>
+                        </label>
 
-            <div class="facility-icon">🔬</div>
-
-            <h3>Science Lab</h3>
-
-            <p>
-                Practical science learning facility being planned.
-            </p>
-
-            <span class="coming-soon">
-                Coming Soon
-            </span>
-
-        </article>
+                        <input
+                            type="text"
+                            id="fatherName"
+                            placeholder="Enter father's full name"
+                            required
+                        >
+                    </div>
 
 
-    </div>
+                    <div class="form-group">
+                        <label for="dob">
+                            Date of Birth <span class="required">*</span>
+                        </label>
 
-</section>
-
-
-<!-- =========================
-     ADMISSION FORM
-========================= -->
-
-<section class="section">
-
-    <h2 class="section-title">
-        📝 Admission Form
-    </h2>
+                        <input
+                            type="date"
+                            id="dob"
+                            required
+                        >
+                    </div>
 
 
-    <div class="form-card">
+                    <div class="form-group">
+                        <label for="gender">
+                            Gender <span class="required">*</span>
+                        </label>
 
-        <form id="admissionForm">
+                        <select id="gender" required>
+                            <option value="">Select Gender</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </select>
+                    </div>
 
 
-            <div class="form-grid">
+                    <div class="form-group">
+                        <label for="classApplying">
+                            Class Applying For <span class="required">*</span>
+                        </label>
+
+                        <select id="classApplying" required>
+                            <option value="">Select Class</option>
+                            <option value="Play Group">Play Group</option>
+                            <option value="Nursery">Nursery</option>
+                            <option value="Prep">Prep</option>
+                            <option value="Class 1">Class 1</option>
+                            <option value="Class 2">Class 2</option>
+                            <option value="Class 3">Class 3</option>
+                            <option value="Class 4">Class 4</option>
+                            <option value="Class 5">Class 5</option>
+                            <option value="Class 6">Class 6</option>
+                            <option value="Class 7">Class 7</option>
+                            <option value="Class 8">Class 8</option>
+                            <option value="Class 9">Class 9</option>
+                            <option value="Class 10">Class 10</option>
+                        </select>
+                    </div>
 
 
-                <!-- STUDENT NAME -->
+                    <div class="form-group">
+                        <label for="previousSchool">
+                            Previous School
+                        </label>
 
-                <div class="field">
+                        <input
+                            type="text"
+                            id="previousSchool"
+                            placeholder="Enter previous school name"
+                        >
+                    </div>
 
-                    <label for="studentName">
-                        Student Full Name
-                        <span class="required">*</span>
-                    </label>
 
-                    <input
-                        type="text"
-                        id="studentName"
-                        name="studentName"
-                        placeholder="Enter student's full name"
-                        required
+                    <div class="form-group">
+                        <label for="parentContact">
+                            Parent/Guardian Contact <span class="required">*</span>
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="parentContact"
+                            placeholder="03XXXXXXXXX"
+                            required
+                        >
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="emergencyContact">
+                            Emergency Contact
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="emergencyContact"
+                            placeholder="Emergency contact number"
+                        >
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="parentEmail">
+                            Parent/Guardian Email
+                        </label>
+
+                        <input
+                            type="email"
+                            id="parentEmail"
+                            placeholder="example@email.com"
+                        >
+                    </div>
+
+
+                    <div class="form-group full">
+                        <label for="address">
+                            Complete Home Address <span class="required">*</span>
+                        </label>
+
+                        <textarea
+                            id="address"
+                            placeholder="Enter complete home address"
+                            required
+                        ></textarea>
+                    </div>
+
+
+                    <div class="form-group full">
+                        <label for="medicalInfo">
+                            Important Medical / Special Information
+                        </label>
+
+                        <textarea
+                            id="medicalInfo"
+                            placeholder="Enter any important medical or special information"
+                        ></textarea>
+                    </div>
+
+
+                    <div class="form-group full">
+                        <label for="remarks">
+                            Additional Remarks
+                        </label>
+
+                        <textarea
+                            id="remarks"
+                            placeholder="Any additional information"
+                        ></textarea>
+                    </div>
+
+                </div>
+
+
+                <div class="submit-area">
+
+                    <!-- IMPORTANT:
+                         type="button" prevents the website from reloading.
+                         WhatsApp is opened directly through JavaScript.
+                    -->
+
+                    <button
+                        type="button"
+                        id="whatsappButton"
+                        class="btn-whatsapp"
                     >
+                        💬 Confirm Admission via WhatsApp
+                    </button>
+
+                    <p class="whatsapp-note">
+                        Your admission information will be prepared and sent to the school via WhatsApp.
+                    </p>
 
                 </div>
 
+            </form>
 
-                <!-- FATHER NAME -->
+        </div>
 
-                <div class="field">
+    </section>
 
-                    <label for="fatherName">
-                        Father's Full Name
-                        <span class="required">*</span>
-                    </label>
 
-                    <input
-                        type="text"
-                        id="fatherName"
-                        name="fatherName"
-                        placeholder="Enter father's full name"
-                        required
-                    >
-
-                </div>
-
-
-                <!-- DOB -->
-
-                <div class="field">
-
-                    <label for="dob">
-                        Date of Birth
-                        <span class="required">*</span>
-                    </label>
-
-                    <input
-                        type="date"
-                        id="dob"
-                        name="dob"
-                        required
-                    >
-
-                </div>
-
-
-                <!-- GENDER -->
-
-                <div class="field">
-
-                    <label for="gender">
-                        Gender
-                        <span class="required">*</span>
-                    </label>
-
-                    <select
-                        id="gender"
-                        name="gender"
-                        required
-                    >
-
-                        <option value="">
-                            Select Gender
-                        </option>
-
-                        <option value="Male">
-                            Male
-                        </option>
-
-                        <option value="Female">
-                            Female
-                        </option>
-
-                    </select>
-
-                </div>
-
-
-                <!-- CLASS -->
-
-                <div class="field">
-
-                    <label for="classApplying">
-                        Class Applying For
-                        <span class="required">*</span>
-                    </label>
-
-                    <select
-                        id="classApplying"
-                        name="classApplying"
-                        required
-                    >
-
-                        <option value="">
-                            Select Class
-                        </option>
-
-                        <option>Play Group</option>
-                        <option>Nursery</option>
-                        <option>Prep</option>
-                        <option>Class 1</option>
-                        <option>Class 2</option>
-                        <option>Class 3</option>
-                        <option>Class 4</option>
-                        <option>Class 5</option>
-                        <option>Class 6</option>
-                        <option>Class 7</option>
-                        <option>Class 8</option>
-                        <option>Class 9</option>
-                        <option>Class 10</option>
-
-                    </select>
-
-                </div>
-
-
-                <!-- PREVIOUS SCHOOL -->
-
-                <div class="field">
-
-                    <label for="previousSchool">
-                        Previous School
-                    </label>
-
-                    <input
-                        type="text"
-                        id="previousSchool"
-                        name="previousSchool"
-                        placeholder="Previous school name"
-                    >
-
-                </div>
-
-
-                <!-- PARENT CONTACT -->
-
-                <div class="field">
-
-                    <label for="parentContact">
-                        Parent/Guardian Contact
-                        <span class="required">*</span>
-                    </label>
-
-                    <input
-                        type="tel"
-                        id="parentContact"
-                        name="parentContact"
-                        placeholder="03XXXXXXXXX"
-                        required
-                    >
-
-                </div>
-
-
-                <!-- EMERGENCY CONTACT -->
-
-                <div class="field">
-
-                    <label for="emergencyContact">
-                        Emergency Contact
-                    </label>
-
-                    <input
-                        type="tel"
-                        id="emergencyContact"
-                        name="emergencyContact"
-                        placeholder="Emergency number"
-                    >
-
-                </div>
-
-
-                <!-- EMAIL -->
-
-                <div class="field">
-
-                    <label for="parentEmail">
-                        Parent/Guardian Email
-                    </label>
-
-                    <input
-                        type="email"
-                        id="parentEmail"
-                        name="parentEmail"
-                        placeholder="example@email.com"
-                    >
-
-                </div>
-
-
-                <!-- ADDRESS -->
-
-                <div class="field full">
-
-                    <label for="address">
-                        Complete Home Address
-                        <span class="required">*</span>
-                    </label>
-
-                    <textarea
-                        id="address"
-                        name="address"
-                        placeholder="Enter complete home address"
-                        required
-                    ></textarea>
-
-                </div>
-
-
-                <!-- MEDICAL INFO -->
-
-                <div class="field full">
-
-                    <label for="medicalInfo">
-                        Important Medical / Special Information
-                    </label>
-
-                    <textarea
-                        id="medicalInfo"
-                        name="medicalInfo"
-                        placeholder="Enter any important information"
-                    ></textarea>
-
-                </div>
-
-
-                <!-- REMARKS -->
-
-                <div class="field full">
-
-                    <label for="remarks">
-                        Additional Remarks
-                    </label>
-
-                    <textarea
-                        id="remarks"
-                        name="remarks"
-                        placeholder="Any additional information"
-                    ></textarea>
-
-                </div>
-
-
-            </div>
-
-
-            <!-- =========================
-                 WHATSAPP BUTTON
-            ========================== -->
-
-            <div class="submit-area">
-
-                <button
-                    type="submit"
-                    class="btn-whatsapp"
-                    id="whatsappButton"
-                >
-                    Confirm Admission via WhatsApp
-                </button>
-
-                <p class="submit-note">
-                    Your admission information will be prepared in WhatsApp.
-                </p>
-
-            </div>
-
-
-        </form>
-
-    </div>
-
-</section>
-
+    <footer>
+        © 2026 Al Badar Lyceum | Rasheed Chowk, Muhalla Aman Abad, Jhang Sadar
+    </footer>
 
 </div>
 
-
-<!-- =========================
-     FOOTER
-========================= -->
-
-<footer class="footer">
-
-    <div class="footer-school">
-        Al Badar Lyceum
-    </div>
-
-    <div class="footer-info">
-        Rasheed Chowk, Muhalla Aman Abad, Jhang Sadar
-        <br>
-        Phone: 03453931931
-        <br>
-        Email: albadarschooljhg@gmail.com
-    </div>
-
-</footer>
-
-
-</main>
-
-</div>
-
-
-<!-- =========================
-     WHATSAPP JAVASCRIPT
-========================= -->
 
 <script>
+document.addEventListener("DOMContentLoaded", function () {
 
-document
-.getElementById("admissionForm")
-.addEventListener("submit", function(event){
+    const form = document.getElementById("admissionForm");
+    const whatsappButton = document.getElementById("whatsappButton");
 
-    event.preventDefault();
+    whatsappButton.addEventListener("click", function () {
 
+        /*
+         * Check all required fields first.
+         * This does NOT submit the form, so the page will not reload.
+         */
 
-    /* Check required fields */
-
-    if(!this.checkValidity()){
-
-        this.reportValidity();
-
-        return;
-
-    }
-
-
-    /* Get information */
-
-    const studentName =
-        document.getElementById("studentName").value.trim();
-
-    const fatherName =
-        document.getElementById("fatherName").value.trim();
-
-    const dob =
-        document.getElementById("dob").value.trim();
-
-    const gender =
-        document.getElementById("gender").value.trim();
-
-    const classApplying =
-        document.getElementById("classApplying").value.trim();
-
-    const previousSchool =
-        document.getElementById("previousSchool").value.trim();
-
-    const parentContact =
-        document.getElementById("parentContact").value.trim();
-
-    const emergencyContact =
-        document.getElementById("emergencyContact").value.trim();
-
-    const parentEmail =
-        document.getElementById("parentEmail").value.trim();
-
-    const address =
-        document.getElementById("address").value.trim();
-
-    const medicalInfo =
-        document.getElementById("medicalInfo").value.trim();
-
-    const remarks =
-        document.getElementById("remarks").value.trim();
+        if (!form.checkValidity()) {
+            form.reportValidity();
+            return;
+        }
 
 
-    /* WhatsApp number */
+        function getValue(id) {
+            return document.getElementById(id).value.trim();
+        }
 
-    const whatsappPhone = "923453931931";
+
+        const studentName = getValue("studentName");
+        const fatherName = getValue("fatherName");
+        const dob = getValue("dob");
+        const gender = getValue("gender");
+        const classApplying = getValue("classApplying");
+        const previousSchool = getValue("previousSchool");
+        const parentContact = getValue("parentContact");
+        const emergencyContact = getValue("emergencyContact");
+        const parentEmail = getValue("parentEmail");
+        const address = getValue("address");
+        const medicalInfo = getValue("medicalInfo");
+        const remarks = getValue("remarks");
 
 
-    /* WhatsApp message */
+        const message =
+`*Al Badar Lyceum - New Admission Request*
 
-    const message =
-`🏫 AL BADAR LYCEUM
+*Student Information*
+Student Name: ${studentName}
+Father's Name: ${fatherName}
+Date of Birth: ${dob}
+Gender: ${gender}
+Class Applying For: ${classApplying}
+
+*Previous Education*
+Previous School: ${previousSchool || "Not provided"}
+
+*Contact Information*
+Parent/Guardian Contact: ${parentContact}
+Emergency Contact: ${emergencyContact || "Not provided"}
+Parent/Guardian Email: ${parentEmail || "Not provided"}
+
+*Address*
+${address}
+
+*Medical / Special Information*
+${medicalInfo || "None provided"}
+
+*Additional Remarks*
+${remarks || "None provided"}
+
+This admission request was submitted through the Al Badar Lyceum website.`;
+
+
+        const whatsappPhone = "923453931931";
+
+        const whatsappURL =
+            "https://wa.me/" +
+            whatsappPhone +
+            "?text=" 
